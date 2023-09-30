@@ -70,12 +70,14 @@
 .hover {
   display: none;
   backdrop-filter: blur(30px);
+  
   width: 300px;
   border-radius: 8px;
   position: absolute;
   height: 400px;
   z-index: 1;
   top:-25%;
+  left:-12%;
   opacity: 0;
   animation: fade-in 0.5s forwards; 
 }

@@ -35,8 +35,8 @@ const Animeholders = (props) => {
       <div className="container">
         <div className="grid-container">
           {data?.map((item, index) => (
-            <div key={index} className="grid-item">
-              <div className="poster item">
+              <div key={item} className="grid-item">
+                <div className="poster item">
                 <LazyImage src={item.image} alt={item.id} />
               </div>
               <div className="anime-name item">
@@ -61,8 +61,8 @@ const Animeholders = (props) => {
                       <LoadingSpinner/>
                     ) : (
                       animeinfo[item.id] && (
-                        
                         <div className="hover-description">
+                          
                           <b>Genres:</b>{" "}{animeinfo[item.id].genres?.join(", ")}
                           <br />
                           <b>Status:</b>{" "}{animeinfo[item.id].status}
@@ -82,12 +82,12 @@ const Animeholders = (props) => {
                   </div>
                 </div>
               </div>
-            </div>
+              </div>
+              
           ))}
         </div>
       </div>
     </>
   );
 };
-
 export default Animeholders;
