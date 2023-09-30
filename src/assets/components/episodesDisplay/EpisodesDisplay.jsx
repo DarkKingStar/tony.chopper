@@ -12,12 +12,12 @@ const EpisodesDisplay = ({
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [slicing,setSlicing] = useState(20);
+  const [start,setStart] = useState(0);
   useEffect(() => {
     const fetchLinks = async () => {
       if (animeInfo && animeInfo?.episodes) {
         try {
-          const start = (currentPage - 1) * slicing;
-          const end = Math.min(start + slicing, animeInfo?.episodes?.length);
+          const end = start + slicing 
           const episodeSlice = animeInfo?.episodes?.slice(start, end);
           const currentEp = animeInfo?.episodes[linkoption-1] || animeInfo?.episodes[0];
           setEpisodeList(episodeSlice);
@@ -41,12 +41,14 @@ const EpisodesDisplay = ({
 
   const goToNextPage = () => {
     setCurrentPage(prev => prev + 1);
+    setStart(prev=> prev + slicing);
     setlinkoption(prev =>  prev + slicing);
     setIsLoading(true);
   };
 
   const goToPreviousPage = () => {
     setCurrentPage(prev => Math.max( prev - 1, 1));
+    setStart(prev=> Math.max((prev - slicing),1));
     setlinkoption(prev =>  Math.max(prev - slicing,1));
     setIsLoading(true);
   };
@@ -74,6 +76,7 @@ const EpisodesDisplay = ({
         goToPreviousPage={goToPreviousPage}
         handleJumpTo={handleJumpTo}
         handleSlicing={handleSlicing}
+        lastepisodenumber={animeInfo?.episodes?.length}
       />
       <WatchorDownload linkoption={episodeLinks} animeId={animeInfo.id} isLoading={isLoading} />
     </div>

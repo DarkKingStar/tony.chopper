@@ -3,13 +3,17 @@ import React, { useState } from 'react';
 
 
 const EpisodeList = ({  episodeList, handleEpisodeClick, currentPage, totalPages, goToNextPage, 
-  slicing, goToPreviousPage,  handleJumpTo, handleSlicing}) => {
+  slicing, goToPreviousPage,  handleJumpTo, handleSlicing,lastepisodenumber}) => {
   const [jumpTo,setJumpTo] = useState(0);
 
   const handleInputChange = (e) => {
     let inputValue = e.target.value;
     inputValue = inputValue.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
-    setJumpTo(inputValue);
+    if(Number(inputValue) > Number(lastepisodenumber)){
+      setJumpTo(lastepisodenumber);
+    }else{
+      setJumpTo(inputValue);
+    }
   };
   return (
     <div>
