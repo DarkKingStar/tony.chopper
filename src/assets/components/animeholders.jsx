@@ -61,6 +61,7 @@ const Animeholders = (props) => {
                       <LoadingSpinner/>
                     ) : (
                       animeinfo[item.id] && (
+                        
                         <div className="hover-description">
                           <b>Genres:</b>{" "}{animeinfo[item.id].genres?.join(", ")}
                           <br />
@@ -75,9 +76,9 @@ const Animeholders = (props) => {
                         </div>
                       )
                     )}
-                    <div className="visitbtn-div">
+                    {animeinfo[item.id]?<div className="visitbtn-div">
                     <button title="Click to View" onClick={() => navigate(`/info/${item.id}`)}>Watch</button>
-                    </div>
+                    </div>:<>Not Available</>}
                   </div>
                 </div>
               </div>
