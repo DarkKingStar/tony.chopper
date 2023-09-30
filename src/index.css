@@ -11,6 +11,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
+  user-select:none;
 }
 body{
   overflow: auto;
