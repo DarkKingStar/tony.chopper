@@ -70,9 +70,8 @@ const Animeholders = (props) => {
                           <br />
                           <b>Type:</b>{" "}{animeinfo[item.id].type}
                           <br />
-                          <a title={animeinfo[item.id].otherName}><b>Name:</b>{" "}{TruncateText(animeinfo[item.id].otherName, 60)}</a>
-                          <br />
-                          <a title={animeinfo[item.id].description}><b>Description:</b>{" "}{TruncateText(animeinfo[item.id].description, 100)}</a>
+                          <div title={animeinfo[item.id].otherName}><b>Name:</b>{" "}{TruncateText(animeinfo[item.id].otherName, 60)}</div>
+                          <div title={animeinfo[item.id].description}><b>Description:</b>{" "}{TruncateText(animeinfo[item.id].description, 100)}</div>
                         </div>
                       )
                     )}
