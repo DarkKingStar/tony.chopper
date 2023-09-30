@@ -1,0 +1,59 @@
+.episode-box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:center;
+    gap: 20px;
+}
+.pagination button, .reso-p-links{
+    margin: 10px 20px;
+}
+.pagination select{
+    border-radius: 8px;
+    border: 1px solid transparent;
+    margin: 1%;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    width: 100px;
+    background-color: #1a1a1a;
+    transition: border-color 0.25s;
+    outline: none;
+}
+.title-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.title-div .page-image img{
+    width: 320px;
+    object-fit: cover;
+    height: fit-content;
+}
+.episode-box button{
+    width: 65px;
+    height: 43px;
+}
+.episode-box{
+    width: 85%;
+    margin: 0 auto;
+}
+.ranging input{
+    border-radius: 5px;
+    border: 0.5px solid whitesmoke;
+    margin: 1%;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    width: 100px;
+    background-color: #1a1a1a;
+    transition: border-color 0.25s;
+    color:white;
+    outline: none;
+}
+.ranging input:focus{
+    outline: 1px solid white;
+}
