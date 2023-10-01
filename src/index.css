@@ -20,7 +20,6 @@ body{
 .container{
   width: 80%;
   margin: auto 10%;
-  
 }
 *{
   transition: all 0.25s;

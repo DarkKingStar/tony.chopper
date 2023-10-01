@@ -1,7 +1,9 @@
 .search-input{
   width: 80%;
-  padding: 0.6em 1.2em;
+  max-width: 732px;
+  padding: 0.8em 1.2em;
   font-size: 1em;
+  margin: auto 0;
   outline: none;
   border: none;
   border-top-left-radius: 8px;
@@ -10,12 +12,17 @@
 .search-btn{
   width: 20%;
   /* padding: 5px 5px !important; */
-  padding: 0.35em 1.2em 0.6em 1.2em !important;
+  padding: 0.4em 1.2em 0.7em 1.2em !important;
   position: relative;
+  margin: auto 0;
   border-top-right-radius: 8px !important;
   border-bottom-right-radius: 8px !important;
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
+}
+.search-btn:hover, .search-btn:active{
+  border-color: transparent !important;
+  background-color: rgb(224, 55, 83);
 }
 .grid-container {
     display: flex;
