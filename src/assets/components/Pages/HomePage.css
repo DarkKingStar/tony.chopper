@@ -11,9 +11,10 @@
   width: 20%;
   padding: 5px 5px !important;
   position: relative;
-  border-radius: 0px !important;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
 .grid-container {
     display: flex;
