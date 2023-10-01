@@ -8,6 +8,8 @@
   border: none;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  border: 2px solid rgb(207, 38, 66);
+  border-right: transparent;
 }
 .search-btn{
   width: 20%;
@@ -19,6 +21,7 @@
   border-bottom-right-radius: 8px !important;
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
+  border: 2px solid rgb(207, 38, 66);
 }
 .search-btn:hover, .search-btn:active{
   border-color: transparent !important;
