@@ -4,6 +4,8 @@
   font-size: 1em;
   outline: none;
   border: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 .search-btn{
   width: 20%;
