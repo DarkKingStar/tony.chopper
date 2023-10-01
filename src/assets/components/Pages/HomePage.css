@@ -22,7 +22,7 @@
 }
 .search-btn:hover, .search-btn:active{
   border-color: transparent !important;
-  background-color: rgb(224, 55, 83);
+  background-color: rgb(207, 38, 66);
 }
 .grid-container {
     display: flex;
@@ -90,7 +90,7 @@
   height: 400px;
   z-index: 1;
   top:-25%;
-  left:-12%;
+  left:-6%;
   opacity: 0;
   animation: fade-in 0.5s forwards; 
 }
