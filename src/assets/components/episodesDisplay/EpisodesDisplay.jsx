@@ -57,7 +57,9 @@ const EpisodesDisplay = ({
 
   const handleJumpTo = (newnum) => {
     const pagenum = Math.ceil(Number(newnum)/slicing);
+    console.log(pagenum);
     setCurrentPage(Math.max( pagenum, 1));
+    setStart(Math.max( pagenum-1 , 1)*slicing);
     setlinkoption((newnum!=="" && newnum) ?Number(newnum): 0);
     setIsLoading(true);
   };
