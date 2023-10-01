@@ -35,7 +35,7 @@ const Animeholders = (props) => {
       <div className="container">
         <div className="grid-container">
           {data?.map((item, index) => (
-              <div key={item} className="grid-item">
+              <div key={index} className="grid-item">
                 <div className="poster item">
                 <LazyImage src={item.image} alt={item.id} />
               </div>
