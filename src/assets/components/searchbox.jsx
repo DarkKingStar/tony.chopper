@@ -40,6 +40,11 @@ function SearchBox() {
         <Animeholders jsonData={sdata} />
         </>
         }
+        {sdata?.results?.length <= 0 && query &&
+        <>
+        <h1>No Result found : {result}</h1>
+        </>
+        }
     </>
     );
 }
