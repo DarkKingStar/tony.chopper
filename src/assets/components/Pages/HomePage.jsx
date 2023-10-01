@@ -50,7 +50,7 @@ function HomePage() {
     <>
 
       <SearchBox/>
-      <h1>Recent Released</h1>
+      <h1>Recent Releases</h1>
       {loadingrr ? <Loading /> : (
         <>
           <Animeholders jsonData={rrdata} />
