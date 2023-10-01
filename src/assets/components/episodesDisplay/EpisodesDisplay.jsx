@@ -13,11 +13,13 @@ const EpisodesDisplay = ({
   const [isLoading, setIsLoading] = useState(true);
   const [slicing,setSlicing] = useState(20);
   const [start,setStart] = useState(0);
+  const [enablenext,setEnablenext] = useState(true);
   useEffect(() => {
     const fetchLinks = async () => {
       if (animeInfo && animeInfo?.episodes) {
         try {
-          const end = start + slicing 
+          const end = start + slicing;
+          setEnablenext(end>=animeInfo?.episodes?.length?true:false);
           const episodeSlice = animeInfo?.episodes?.slice(start, end);
           const currentEp = animeInfo?.episodes[linkoption-1] || animeInfo?.episodes[0];
           setEpisodeList(episodeSlice);
@@ -48,7 +50,7 @@ const EpisodesDisplay = ({
 
   const goToPreviousPage = () => {
     setCurrentPage(prev => Math.max( prev - 1, 1));
-    setStart(prev=> Math.max((prev - slicing),1));
+    setStart(prev=> Math.max((prev - slicing),0));
     setlinkoption(prev =>  Math.max(prev - slicing,1));
     setIsLoading(true);
   };
@@ -70,7 +72,7 @@ const EpisodesDisplay = ({
         episodeList={episodeList}
         handleEpisodeClick={handleEpisodeClick}
         currentPage={currentPage}
-        totalPages={Math.ceil(animeInfo?.episodes?.length / slicing)}
+        enablenext={enablenext}
         goToNextPage={goToNextPage}
         slicing={slicing}
         goToPreviousPage={goToPreviousPage}

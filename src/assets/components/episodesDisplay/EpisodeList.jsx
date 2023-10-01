@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 
-const EpisodeList = ({  episodeList, handleEpisodeClick, currentPage, totalPages, goToNextPage, 
+const EpisodeList = ({  episodeList, handleEpisodeClick, currentPage, enablenext, goToNextPage, 
   slicing, goToPreviousPage,  handleJumpTo, handleSlicing,lastepisodenumber}) => {
   const [jumpTo,setJumpTo] = useState(0);
 
@@ -38,7 +38,7 @@ const EpisodeList = ({  episodeList, handleEpisodeClick, currentPage, totalPages
         <option value={50}>50</option>
         <option value={100}>100</option>
         </select>
-        <button onClick={goToNextPage} disabled={currentPage >= totalPages}>Next {slicing}</button>
+        <button onClick={goToNextPage} disabled={enablenext}>Next {slicing}</button>
       </div>
 
 
