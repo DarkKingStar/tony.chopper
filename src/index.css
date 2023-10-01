@@ -22,7 +22,10 @@ body{
   margin: auto 10%;
 }
 *{
-  transition: all 0.25s;
+  transition: all 0.45s;
+}
+*:focus {
+  outline: none;
 }
 .mx-2{
   margin: 0 5%;

@@ -44,15 +44,15 @@ const EpisodesDisplay = ({
   const goToNextPage = () => {
     setCurrentPage(prev => prev + 1);
     setStart(prev=> prev + slicing);
-    setlinkoption(prev =>  prev + slicing);
-    setIsLoading(true);
+    //setlinkoption(prev =>  prev + slicing);
+     // setIsLoading(true);
   };
 
   const goToPreviousPage = () => {
     setCurrentPage(prev => Math.max( prev - 1, 1));
     setStart(prev=> Math.max((prev - slicing),0));
-    setlinkoption(prev =>  Math.max(prev - slicing,1));
-    setIsLoading(true);
+    //setlinkoption(prev =>  Math.max(prev - slicing,1));
+    // setIsLoading(true);
   };
 
   const handleJumpTo = (newnum) => {
