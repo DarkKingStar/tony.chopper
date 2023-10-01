@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import "./navbar.css";
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
-
+    const navigate = useNavigate();
     const toggleLinks = () => {
         setShowLinks(!showLinks);
     }
@@ -20,7 +21,7 @@ const Navbar = () => {
                             </div>
                             <div className="nav-brand">CHOPPER&#x2022;IO</div>
                             <div className={`nav-links ${showLinks ? 'show' : ''}`}>
-                                <div className="nav-item">Home</div>
+                                <div className="nav-item" onClick={() => navigate("/")}>Home</div>
                                 <div className="nav-item">Genres</div>
                                 <div className="nav-item">More</div>
                             </div>
