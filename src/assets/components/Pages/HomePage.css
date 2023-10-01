@@ -44,6 +44,9 @@
     border: 1px solid #f0f0f0;
     cursor: pointer;
 }
+.grid-item:hover{
+  border: 1px solid transparent;
+}
 .poster{
   margin: 5% 5% 0 5%;
   height: 250px;
