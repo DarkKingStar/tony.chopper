@@ -6,7 +6,7 @@ const WatchorDownload = ({ linkoption, isLoading , animeId}) => {
     <div className='video-option'>
       <h3>Watch Online OR Downlaod<br/><br/> {isLoading?"":(<>Episode : {linkoption?.number}</>)} </h3>
       <h4>Watch Online</h4>
-      {linkoption?.sources?.map((link) => (
+      {linkoption?.sources?.slice(0, 4).map((link) => (
         <button key={link?.quality} 
         className="reso-p-links" 
         disabled={isLoading} 

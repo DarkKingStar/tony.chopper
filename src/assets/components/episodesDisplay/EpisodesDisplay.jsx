@@ -66,6 +66,7 @@ const EpisodesDisplay = ({
   const handleSlicing = (value) =>{
     if(slicing != value){
       setSlicing(value);
+      setStart(linkoption-(linkoption%value))
     }
   };
   return (
