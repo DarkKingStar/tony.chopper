@@ -168,7 +168,7 @@
 @media screen and (max-width: 767px) {
   .hover{
     scale: 0.7;
-    transform: translate(-40%,-120%);
+    transform: translate(-35%,-120%);
   }
 }
 
