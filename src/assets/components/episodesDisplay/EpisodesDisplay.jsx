@@ -52,29 +52,24 @@ const EpisodesDisplay = ({
   const goToNextPage = () => {
     setCurrentPage(prev => prev + 1);
     setStart(prev=> prev + slicing);
-    //setlinkoption(prev =>  prev + slicing);
-     // setIsLoading(true);
   };
 
   const goToPreviousPage = () => {
     setCurrentPage(prev => Math.max( prev - 1, 1));
     setStart(prev=> Math.max((prev - slicing),0));
-    //setlinkoption(prev =>  Math.max(prev - slicing,1));
-    // setIsLoading(true);
   };
 
   const handleJumpTo = (newnum) => {
-    const pagenum = parseInt(Number(newnum)/slicing);
-    setCurrentPage(Math.max( pagenum, 1));
-    setStart(Math.max( pagenum-1 , 1)*slicing);
+    setCurrentPage(Math.ceil(Number(newnum)/slicing));
+      setStart(slicing*(Math.ceil(Number(newnum)/slicing)-1));    
     setlinkoption((newnum!=="" && newnum) ?Number(newnum): 0);
     setIsLoading(true);
   };
   const handleSlicing = (value) =>{
     if(slicing != value){
       setSlicing(value);
-      setCurrentPage(Math.ceil(Number(linkoption)/value))
-      setStart(value*(Math.ceil(Number(linkoption)/value)-1));
+      setCurrentPage(Math.ceil(Number(linkoption)/value));
+      setStart(value*(Math.ceil(Number(linkoption)/value)-1));      
     }
   };
   return (
