@@ -60,7 +60,7 @@ const WatchPage = () =>{
                     autoPlay
                     />
             </div>
-            <EpisodesDisplay animeInfo={animeInfo} watchPageFlag={true}/>
+            <EpisodesDisplay animeInfo={animeInfo} watchPageFlag={true} currentEpisodeNumber={epId.slice(epId.lastIndexOf('-')+1)}/>
             </>}
             
         </>

@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage, enablenext, goToNextPage, 
   slicing, goToPreviousPage,  handleJumpTo, handleSlicing,lastepisodenumber}) => {
   const [jumpTo,setJumpTo] = useState(0);
-
   const handleInputChange = (e) => {
     let inputValue = e.target.value;
     inputValue = inputValue.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');

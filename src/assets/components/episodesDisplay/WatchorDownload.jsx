@@ -9,6 +9,7 @@ const WatchorDownload = ({ linkoption, isLoading , animeId}) => {
       <h4>Watch Online</h4>
       {linkoption?.sources?.map((link) => (
         <button key={link?.quality} 
+        style={{display:`${/^\d/.test(link?.quality)?'content':'none'}`}}
         disabled={isLoading}
         className={`${(qvalue == link?.quality)?'reso-p-links currentepisode':'reso-p-links'}`}
         onClick={() => navigate(`/watch/${animeId}?e=${linkoption.id}&q=${link?.quality}`)} >

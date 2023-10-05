@@ -5,11 +5,11 @@ import WatchorDownload from './WatchorDownload';
 import { FetchVideoLink } from '../../fetch/fetchvideolink';
 import { useNavigate, useParams } from 'react-router-dom';
 const EpisodesDisplay = ({
- animeInfo, watchPageFlag
+ animeInfo, watchPageFlag, currentEpisodeNumber
 }) => {
   const [episodeLinks, setEpisodeLinks] = useState([]);
   const [episodeList, setEpisodeList] = useState([]);
-  const [linkoption, setlinkoption] = useState(1);
+  const [linkoption, setlinkoption] = useState(currentEpisodeNumber || 1);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [slicing,setSlicing] = useState(20);
