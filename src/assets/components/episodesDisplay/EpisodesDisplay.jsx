@@ -10,10 +10,10 @@ const EpisodesDisplay = ({
   const [episodeLinks, setEpisodeLinks] = useState([]);
   const [episodeList, setEpisodeList] = useState([]);
   const [linkoption, setlinkoption] = useState(currentEpisodeNumber || 1);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState((Math.ceil(Number(currentEpisodeNumber)/20)) || 1);
   const [isLoading, setIsLoading] = useState(true);
   const [slicing,setSlicing] = useState(20);
-  const [start,setStart] = useState(0);
+  const [start,setStart] = useState((20*(Math.ceil(Number(currentEpisodeNumber)/20)-1)) || 0);
   const [enablenext,setEnablenext] = useState(true);
   const navigate = useNavigate();
   let { animeId } = useParams();
@@ -64,8 +64,7 @@ const EpisodesDisplay = ({
   };
 
   const handleJumpTo = (newnum) => {
-    const pagenum = Math.ceil(Number(newnum)/slicing);
-    console.log(pagenum);
+    const pagenum = parseInt(Number(newnum)/slicing);
     setCurrentPage(Math.max( pagenum, 1));
     setStart(Math.max( pagenum-1 , 1)*slicing);
     setlinkoption((newnum!=="" && newnum) ?Number(newnum): 0);
@@ -74,7 +73,8 @@ const EpisodesDisplay = ({
   const handleSlicing = (value) =>{
     if(slicing != value){
       setSlicing(value);
-      setStart(linkoption-(linkoption%value))
+      setCurrentPage(Math.ceil(Number(linkoption)/value))
+      setStart(value*(Math.ceil(Number(linkoption)/value)-1));
     }
   };
   return (
