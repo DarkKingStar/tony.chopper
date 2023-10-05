@@ -35,7 +35,7 @@ const Navbar = () => {
                     </nav>
                 </div>
             </div>
-            {showSearchBar && <div className='container'><SearchBox/></div>}
+            {showSearchBar && <SearchBox/>}
         </>
     );
 }
