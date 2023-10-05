@@ -8,14 +8,13 @@ const WatchorDownload = ({ linkoption, isLoading , animeId}) => {
       <h3>Watch Online OR Downlaod<br/><br/> Episode : {isLoading?(<>....</>):(linkoption?.number)}</h3>
       <h4>Watch Online</h4>
       {linkoption?.sources?.map((link) => (
-        <>{/^\d/.test(link?.quality) && //check if start with number 
         <button key={link?.quality} 
         disabled={isLoading}
         className={`${(qvalue == link?.quality)?'reso-p-links currentepisode':'reso-p-links'}`}
         onClick={() => navigate(`/watch/${animeId}?e=${linkoption.id}&q=${link?.quality}`)} >
           {link?.quality}
-        </button>}
-        </>))}
+        </button>
+      ))}
       <h4>Download from Vidstream</h4>
       <a target="_blank" href={linkoption?.download}>
         <button disabled={isLoading}>Download</button>
