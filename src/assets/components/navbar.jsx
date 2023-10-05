@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import "./navbar.css";
 import { useNavigate } from 'react-router-dom';
+import SearchBox from './searchbox';
+
 const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
+    const [showSearchBar,setShowSearchBar] = useState(false);
     const navigate = useNavigate();
     const toggleLinks = () => {
         setShowLinks(!showLinks);
     }
-
+    const handleShowSearchBar = () =>{
+        setShowSearchBar(!showSearchBar)
+    }
     return (
         <>
             <div className="container md-2">
@@ -23,13 +28,14 @@ const Navbar = () => {
                             <div className={`nav-links ${showLinks ? 'show' : ''}`}>
                                 <div className="nav-item" onClick={() => navigate("/")}>Home</div>
                                 <div className="nav-item">Genres</div>
-                                <div className="nav-item">More</div>
+                                <div className="nav-item" onClick={() => handleShowSearchBar()}>Search</div>
                             </div>
                             <div className="nav-user">Login</div>
                         </div>
                     </nav>
                 </div>
             </div>
+            {showSearchBar && <div className='container'><SearchBox/></div>}
         </>
     );
 }

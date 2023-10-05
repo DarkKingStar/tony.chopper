@@ -48,10 +48,11 @@ nav{
 }
 
 .menu-icon{
-    width: 25px;
+    width: 40px;
     height: 2px;
     background-color: white;
     margin: 6px 0;
+    transition: all 0.2s ease-in !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -85,15 +86,21 @@ nav{
         color: #fff;
     }
 }
+&.menu-icon:nth-child(1){
+    transform: translate(0, -8px);
+}
+&.menu-icon:nth-child(3){
+    transform: translate(0, 8px);
+}
 .nav-toggle.active .menu-icon:nth-child(3) {
     opacity: 0;
 }
 
 .nav-toggle.active .menu-icon:nth-child(1) {
-    transform: rotate(45deg) translate(2px, 3px);
+    transform: translate(0, 3.5px) rotate(45deg);
 }
 
 .nav-toggle.active .menu-icon:nth-child(2) {
-    transform: rotate(-45deg) translate(2px, -3px);
+    transform: translate(0, -3.5px) rotate(-45deg);
 }
 

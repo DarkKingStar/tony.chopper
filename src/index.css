@@ -27,6 +27,9 @@ body{
 *:focus {
   outline: none;
 }
+.mt-2{
+  margin-top: 5% ;
+}
 .mx-2{
   margin: 0 5%;
 }
