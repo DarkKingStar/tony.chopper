@@ -57,3 +57,6 @@
 .ranging input:focus{
     outline: 1px solid white;
 }
+.currentepisode{
+    background-color:  #CF2642;
+}

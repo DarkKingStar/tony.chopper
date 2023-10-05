@@ -73,6 +73,7 @@ const EpisodesDisplay = ({
     <div>
       <EpisodeList
         episodeList={episodeList}
+        linkoption={linkoption}
         handleEpisodeClick={handleEpisodeClick}
         currentPage={currentPage}
         enablenext={enablenext}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom"; 
-import LoadingSpinner from '../../functions/LoadingSpinner';
 const WatchorDownload = ({ linkoption, isLoading , animeId}) => {
   const navigate = useNavigate();
   return (

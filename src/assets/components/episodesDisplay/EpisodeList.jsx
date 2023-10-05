@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 
-const EpisodeList = ({  episodeList, handleEpisodeClick, currentPage, enablenext, goToNextPage, 
+const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage, enablenext, goToNextPage, 
   slicing, goToPreviousPage,  handleJumpTo, handleSlicing,lastepisodenumber}) => {
   const [jumpTo,setJumpTo] = useState(0);
 
@@ -23,6 +23,7 @@ const EpisodeList = ({  episodeList, handleEpisodeClick, currentPage, enablenext
           <button 
             key={link.number}
             onClick={() => handleEpisodeClick(link.number)}
+            className={`${(linkoption == link?.number)?"currentepisode":""}`}
           >
             {link.number}
           </button>

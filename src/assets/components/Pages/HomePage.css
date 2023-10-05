@@ -52,6 +52,7 @@
   background: linear-gradient(0deg, rgba(0,0,0,1) 7%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 72%, rgba(0,0,0,0) 100%);
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 1em; /* Default font size */
+  border-radius: 8px;
 }
 .non-hover-p{
   position: absolute;
