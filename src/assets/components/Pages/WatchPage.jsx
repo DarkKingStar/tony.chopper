@@ -4,13 +4,12 @@ import { FetchVideoLink } from '../../fetch/fetchvideolink';
 import LoadingSpinner from '../../functions/LoadingSpinner';
 import { FetchAnimeInfo } from '../../fetch/fetchanimeinfo';
 import ReactPlayer from 'react-player';
-import InfoPage from './InfoPage';
 import EpisodesDisplay from '../episodesDisplay/EpisodesDisplay';
 import "./WatchPage.css"
 
 const WatchPage = () =>{
     let { animeId } = useParams();
-    const qvalue = new URLSearchParams(window.location.search).get('q')
+    const qvalue = new URLSearchParams(window.location.search).get('q');
     const epId = new URLSearchParams(window.location.search).get('e');
     const [link,setLink] = useState({});
     const [animeInfo,setAnimeInfo] = useState([]);
@@ -61,7 +60,7 @@ const WatchPage = () =>{
                     autoPlay
                     />
             </div>
-            <EpisodesDisplay animeInfo={animeInfo}/>
+            <EpisodesDisplay animeInfo={animeInfo} watchPageFlag={true}/>
             </>}
             
         </>

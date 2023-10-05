@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import EpisodeList from './EpisodeList';
 import WatchorDownload from './WatchorDownload';
 import { FetchVideoLink } from '../../fetch/fetchvideolink';
+import { useNavigate, useParams } from 'react-router-dom';
 const EpisodesDisplay = ({
- animeInfo
+ animeInfo, watchPageFlag
 }) => {
   const [episodeLinks, setEpisodeLinks] = useState([]);
   const [episodeList, setEpisodeList] = useState([]);
@@ -14,6 +15,8 @@ const EpisodesDisplay = ({
   const [slicing,setSlicing] = useState(20);
   const [start,setStart] = useState(0);
   const [enablenext,setEnablenext] = useState(true);
+  const navigate = useNavigate();
+  let { animeId } = useParams();
   useEffect(() => {
     const fetchLinks = async () => {
       if (animeInfo && animeInfo?.episodes) {
@@ -37,6 +40,11 @@ const EpisodesDisplay = ({
   }, [animeInfo, currentPage, linkoption, slicing]);
 
   const handleEpisodeClick = (epnum) => {
+    if(watchPageFlag){
+      const qvalue = new URLSearchParams(window.location.search).get('q');
+      const evalue = new URLSearchParams(window.location.search).get('e');
+      navigate(`/watch/${animeId}?e=${evalue.slice(0,evalue.lastIndexOf('-')+1)+ epnum}&q=${qvalue}`);
+    }
     setlinkoption(epnum);
     setIsLoading(true);
   };

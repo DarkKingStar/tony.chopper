@@ -28,7 +28,7 @@ const InfoPage = () => {
   return (
     <div className='container'>
       <AnimeInfo animeInfo={animeInfo} />
-      <EpisodesDisplay animeInfo={animeInfo}/>
+      <EpisodesDisplay animeInfo={animeInfo} watchPageFlag={false}/>
     </div>
   );
 };
