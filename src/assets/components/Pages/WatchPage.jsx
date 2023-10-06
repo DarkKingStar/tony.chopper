@@ -45,7 +45,7 @@ const WatchPage = () =>{
             const videoUrl = await M3u8toMp4(link);
             const a = document.createElement('a');
             a.href = videoUrl;
-            a.download = 'custom_filename.mp4'; // Set the desired file name here
+            a.download = `${epId}-${qvalue}.mp4`; // Set the desired file name here
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
