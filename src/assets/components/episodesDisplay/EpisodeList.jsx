@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage, enablenext, goToNextPage, 
   slicing, goToPreviousPage,  handleJumpTo, handleSlicing,lastepisodenumber}) => {
   const [jumpTo,setJumpTo] = useState(0);
+  const evalue = new URLSearchParams(window.location.search).get('e');
   const handleInputChange = (e) => {
     let inputValue = e.target.value;
     inputValue = inputValue.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
@@ -21,14 +22,14 @@ const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage
         <input type="text" value={jumpTo||""} onChange={handleInputChange} placeholder='Jump To....'/>
         <button onClick={()=>handleJumpTo(jumpTo)}>Go</button>
       </div>
-      
+
       {/* Display Episodes */}
       <div className="episode-box">
         {episodeList.map((link) => (
           <button 
             key={link.number}
             onClick={() => handleEpisodeClick(link.number)}
-            className={`${(linkoption == link?.number)?"currentepisode":""}`}
+            className={`${(evalue.split('-')[evalue.split('-').length - 1] == link?.number)?"currentepisode":""}`}
           >
             {link.number}
           </button>

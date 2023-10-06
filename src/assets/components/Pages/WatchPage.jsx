@@ -7,6 +7,7 @@ import ReactPlayer from 'react-player';
 import EpisodesDisplay from '../episodesDisplay/EpisodesDisplay';
 import "./WatchPage.css"
 import { M3u8toMp4 } from '../../fetch/m3u8tomp4';
+import { useNavigate } from 'react-router-dom';
 
 const WatchPage = () =>{
     let { animeId } = useParams();
@@ -16,6 +17,11 @@ const WatchPage = () =>{
     const [animeInfo,setAnimeInfo] = useState([]);
     const [loading,setLoading] = useState(true);
     const [downloadProgress, setDownloadProgress] = useState(0);
+    const [currentEpisodeNumber,setCurrentEpisodeNumber] = useState(epId.slice(epId.lastIndexOf('-')+1));
+    const navigate = useNavigate();
+    useEffect(()=>{
+        setCurrentEpisodeNumber(epId.slice(epId.lastIndexOf('-')+1))
+    },[epId])
     useEffect(()=>{
         const fetchLink = async() =>{
             const data = await FetchVideoLink(epId);
@@ -61,6 +67,12 @@ const WatchPage = () =>{
                 setDownloadProgress(0);
             }
         }
+
+        const SwitchTonextEpisode = () =>{
+            if(Number(currentEpisodeNumber) + 1<=animeInfo.episodes.length){
+                navigate(`/watch/${animeId}?e=${epId.slice(0,epId.lastIndexOf('-')+1)}${Number(currentEpisodeNumber)+1}&q=${qvalue}`)
+            }
+        }
         
         if (!animeInfo) {
           return <LoadingSpinner />;
@@ -90,6 +102,7 @@ const WatchPage = () =>{
                     width="100%"
                     height="100%"
                     autoPlay
+                    onEnded={SwitchTonextEpisode}
                     />
             </div>
             
