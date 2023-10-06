@@ -15,6 +15,7 @@ const WatchPage = () =>{
     const [link,setLink] = useState({});
     const [animeInfo,setAnimeInfo] = useState([]);
     const [loading,setLoading] = useState(true);
+    const [downloadProgress, setDownloadProgress] = useState(0);
     useEffect(()=>{
         const fetchLink = async() =>{
             const data = await FetchVideoLink(epId);
@@ -44,11 +45,12 @@ const WatchPage = () =>{
             const dwnldbtn = document.getElementById("downloadEpisodebtn");
             try{
                 dwnldbtn.disabled = true;
-                dwnldbtn.innerText = "downloading...";
-                const videoUrl = await M3u8toMp4(link);
+                const videoUrl = await M3u8toMp4(link, progress => {
+                    setDownloadProgress(progress);
+                });
                 const a = document.createElement('a');
                 a.href = videoUrl;
-                a.download = `${epId}-${qvalue}.mp4`;
+                a.download = `E${epId.split('-')[epId.split('-').length - 1]}-${qvalue}-${animeId}.mp4`;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
@@ -56,7 +58,7 @@ const WatchPage = () =>{
                 console.log("can't download : "+err);
             }finally{
                 dwnldbtn.disabled = false;
-                dwnldbtn.innerText = "Download";
+                setDownloadProgress(0);
             }
         }
         
@@ -75,6 +77,9 @@ const WatchPage = () =>{
                 <button id="downloadEpisodebtn" onClick={handleDownload}>
                     Download
                 </button>
+                <div className='download-progress'>
+                {downloadProgress > 0 && `Downloading: ${downloadProgress.toFixed(2)}%`}
+                </div>
             </div>
             <div className='player-wrapper'>
                     <ReactPlayer
