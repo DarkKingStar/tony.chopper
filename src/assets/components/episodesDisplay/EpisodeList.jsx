@@ -29,7 +29,7 @@ const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage
           <button 
             key={link.number}
             onClick={() => handleEpisodeClick(link.number)}
-            className={`${(evalue.split('-')[evalue.split('-').length - 1] == link?.number)?"currentepisode":""}`}
+            className={`${(evalue?.split('-')[evalue?.split('-').length - 1] == link?.number)?"currentepisode":""}`}
           >
             {link.number}
           </button>
