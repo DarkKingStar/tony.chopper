@@ -6,17 +6,29 @@
     gap: 20px;
 }
 .pagination button, .reso-p-links{
-    margin: 10px 20px;
+    margin: 15px 20px 5px;
+}
+.pagination button{
+    padding: 5px 10px 3px !important;
+    background-color: #CF2642;
+}
+.pagination button:hover, .ranging button:hover{
+    background-color:#F24A66;
+    color:  #cccccc;
+}
+.pagination button:disabled{
+  background-color: #cccccc;
+  color: #666666;
 }
 .pagination select{
     border-radius: 8px;
     border: 1px solid transparent;
-    margin: 1%;
-    padding: 0.6em 1.2em;
+    margin: 15px 20px 0px;
+    padding: 5px 10px 5px;
+    text-align: center;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    width: 100px;
     background-color: #1a1a1a;
     transition: border-color 0.25s;
     outline: none;
@@ -38,7 +50,11 @@
 }
 .episode-box{
     width: 85%;
-    margin: 0 auto;
+  margin: 10px auto;
+  background: rgb(0, 0, 0);
+  padding: 2% 1%;
+  border: none;
+  border-radius: 8px;
 }
 .ranging input{
     border-radius: 5px;
@@ -53,6 +69,9 @@
     transition: border-color 0.25s;
     color:white;
     outline: none;
+}
+.ranging button{
+    background-color: #CF2642;
 }
 .ranging input:focus{
     outline: 1px solid white;

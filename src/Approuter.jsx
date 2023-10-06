@@ -10,6 +10,7 @@ import Footer from './assets/components/footer';
 const AppRouter = () => {
   return (
     <Router>
+      <div className='main'>
       <Navbar/>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -17,6 +18,7 @@ const AppRouter = () => {
         <Route path="/watch/:animeId" element={<WatchPage/>} />
         <Route path="/*" element={<Page404/>} />
       </Routes>
+      </div>
       <Footer/>
     </Router>
   );
