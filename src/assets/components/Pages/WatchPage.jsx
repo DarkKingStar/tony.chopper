@@ -41,14 +41,23 @@ const WatchPage = () =>{
         }, [animeId]);
         
         const handleDownload = async () => {
-            
-            const videoUrl = await M3u8toMp4(link);
-            const a = document.createElement('a');
-            a.href = videoUrl;
-            a.download = `${epId}-${qvalue}.mp4`; // Set the desired file name here
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            const dwnldbtn = document.getElementById("downloadEpisodebtn");
+            try{
+                dwnldbtn.disabled = true;
+                dwnldbtn.innerText = "downloading...";
+                const videoUrl = await M3u8toMp4(link);
+                const a = document.createElement('a');
+                a.href = videoUrl;
+                a.download = `${epId}-${qvalue}.mp4`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }catch(err){
+                console.log("can't download : "+err);
+            }finally{
+                dwnldbtn.disabled = false;
+                dwnldbtn.innerText = "Download";
+            }
         }
         
         if (!animeInfo) {
@@ -63,7 +72,7 @@ const WatchPage = () =>{
                 <h2>Episode : {epId.split('-')[epId.split('-').length - 1]}</h2>
             </div>
             <div className='download-wrapper'>
-                <button onClick={handleDownload}>
+                <button id="downloadEpisodebtn" onClick={handleDownload}>
                     Download
                 </button>
             </div>
