@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "./navbar.css";
 import { useNavigate, useLocation } from 'react-router-dom';
 import SearchBox from './searchbox';
@@ -8,7 +8,11 @@ const Navbar = () => {
     const [showSearchBar, setShowSearchBar] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-
+    useEffect(()=>{
+        if (location.pathname === '/') {
+            setShowSearchBar(false);
+        }
+    }, [location.pathname])
     const toggleLinks = () => {
         setShowLinks(!showLinks);
     }
@@ -31,10 +35,10 @@ const Navbar = () => {
                                 <div className='menu-icon'></div>
                             </div>
                             <div className="nav-brand">CHOPPER&#x2022;IO</div>
-                            <div className={`nav-links ${showLinks ? 'show' : ''}`}>
-                                {!isHomePage && <div className="nav-item" onClick={() => navigate("/")}>Home</div>}
+                            <div className={`nav-links ${showLinks ? 'show' : 'dontshow'}`}>
+                                {!isHomePage && <div className="nav-item" onClick={() => {navigate("/");toggleLinks()}}>Home</div>}
                                 <div className="nav-item">Genres</div>
-                                {!isHomePage && <div className="nav-item" onClick={() => handleShowSearchBar()}>Search</div>}
+                                {!isHomePage && <div className="nav-item" onClick={() => {handleShowSearchBar();toggleLinks()}}>Search</div>}
                             </div>
                             <div className="nav-user">Login</div>
                         </div>

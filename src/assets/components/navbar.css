@@ -69,14 +69,25 @@ nav{
         left: 0;
         right: 0;
         text-align: center;
+        
+    }
+
+    /* Define the animation */
+    @keyframes slideInTop {
+        from {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(0);
+        }
     }
     .nav-links .nav-item{
         width:100%;
     }
     .nav-links.show {
         display: flex;
+        animation: slideInTop 0.5s ease forwards;
     }
-
     .nav-toggle {
         display: block;
         transition: transform 1s;
