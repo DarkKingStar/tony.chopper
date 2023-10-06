@@ -6,6 +6,7 @@ import { FetchAnimeInfo } from '../../fetch/fetchanimeinfo';
 import ReactPlayer from 'react-player';
 import EpisodesDisplay from '../episodesDisplay/EpisodesDisplay';
 import "./WatchPage.css"
+import { M3u8toMp4 } from '../../fetch/m3u8tomp4';
 
 const WatchPage = () =>{
     let { animeId } = useParams();
@@ -38,6 +39,18 @@ const WatchPage = () =>{
         };
         fetchData();
         }, [animeId]);
+        
+        const handleDownload = async () => {
+            
+            const videoUrl = await M3u8toMp4(link);
+            const a = document.createElement('a');
+            a.href = videoUrl;
+            a.download = 'custom_filename.mp4'; // Set the desired file name here
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+        
         if (!animeInfo) {
           return <LoadingSpinner />;
         }
@@ -48,6 +61,11 @@ const WatchPage = () =>{
             <div className="container">
                 <h1>{animeInfo?.title}</h1>
                 <h2>Episode : {epId.split('-')[epId.split('-').length - 1]}</h2>
+            </div>
+            <div className='download-wrapper'>
+                <button onClick={handleDownload}>
+                    Download
+                </button>
             </div>
             <div className='player-wrapper'>
                     <ReactPlayer
@@ -60,6 +78,7 @@ const WatchPage = () =>{
                     autoPlay
                     />
             </div>
+            
             <EpisodesDisplay animeInfo={animeInfo} watchPageFlag={true} currentEpisodeNumber={epId.slice(epId.lastIndexOf('-')+1)}/>
             </>}
             

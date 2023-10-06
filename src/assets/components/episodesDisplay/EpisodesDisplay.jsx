@@ -61,7 +61,7 @@ const EpisodesDisplay = ({
 
   const handleJumpTo = (newnum) => {
     setCurrentPage(Math.ceil(Number(newnum)/slicing));
-      setStart(slicing*(Math.ceil(Number(newnum)/slicing)-1));    
+    setStart(slicing*(Math.ceil(Number(newnum)/slicing)-1));    
     setlinkoption((newnum!=="" && newnum) ?Number(newnum): 0);
     setIsLoading(true);
   };
