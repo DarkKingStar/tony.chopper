@@ -86,6 +86,7 @@ const EpisodesDisplay = ({
         handleJumpTo={handleJumpTo}
         handleSlicing={handleSlicing}
         lastepisodenumber={animeInfo?.episodes?.length}
+        watchPageFlag={watchPageFlag || false}
       />
       <WatchorDownload linkoption={episodeLinks} animeId={animeInfo.id} isLoading={isLoading} />
     </div>

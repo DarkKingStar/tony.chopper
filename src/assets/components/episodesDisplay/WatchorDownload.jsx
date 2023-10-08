@@ -5,7 +5,7 @@ const WatchorDownload = ({ linkoption, isLoading , animeId}) => {
   const qvalue = new URLSearchParams(window.location.search).get('q');
   return (
     <div className='video-option'>
-      <h3>Select the ideo Quality<br/><br/> Episode : {isLoading?(<>....</>):(linkoption?.number)}</h3>
+      <h3>Select the Video Quality<br/><br/> Episode : {isLoading?(<>....</>):(linkoption?.number)}</h3>
       <h4>Watch Online</h4>
       {linkoption?.sources?.map((link) => (
         <button key={link?.quality} 

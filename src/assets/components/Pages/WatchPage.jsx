@@ -18,6 +18,7 @@ const WatchPage = () =>{
     const [loading,setLoading] = useState(true);
     const [downloadProgress, setDownloadProgress] = useState(0);
     const [currentEpisodeNumber,setCurrentEpisodeNumber] = useState(epId.slice(epId.lastIndexOf('-')+1));
+    const [isMuted, setIsMuted] = useState(true);
     const navigate = useNavigate();
     useEffect(()=>{
         setCurrentEpisodeNumber(epId.slice(epId.lastIndexOf('-')+1))
@@ -73,7 +74,9 @@ const WatchPage = () =>{
                 navigate(`/watch/${animeId}?e=${epId.slice(0,epId.lastIndexOf('-')+1)}${Number(currentEpisodeNumber)+1}&q=${qvalue}`)
             }
         }
-        
+        const handleUnmute = () => {
+            setIsMuted(false);
+        }
         if (!animeInfo) {
           return <LoadingSpinner />;
         }
@@ -98,11 +101,12 @@ const WatchPage = () =>{
                     url={link}
                     controls
                     playing
-                    muted
+                    muted={isMuted} 
                     width="100%"
                     height="100%"
                     autoPlay
                     onEnded={SwitchTonextEpisode}
+                    onStart={handleUnmute}
                     />
             </div>
             

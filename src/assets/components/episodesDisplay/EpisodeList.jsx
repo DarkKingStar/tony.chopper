@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 
 const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage, enablenext, goToNextPage, 
-  slicing, goToPreviousPage,  handleJumpTo, handleSlicing,lastepisodenumber}) => {
+  slicing, goToPreviousPage,  handleJumpTo, handleSlicing,lastepisodenumber,watchPageFlag}) => {
   const [jumpTo,setJumpTo] = useState(0);
   const evalue = new URLSearchParams(window.location.search).get('e');
   const handleInputChange = (e) => {
@@ -28,8 +28,11 @@ const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage
         {episodeList.map((link) => (
           <button 
             key={link.number}
-            onClick={() => handleEpisodeClick(link.number)}
-            className={`${(evalue?.split('-')[evalue?.split('-').length - 1] == link?.number)?"currentepisode":""}`}
+            onClick={() => {
+              handleEpisodeClick(link.number);
+              //add the code here
+          }}
+            className={`${((evalue?.split('-')[evalue?.split('-').length - 1] == link?.number) || (!watchPageFlag && linkoption == link?.number)) ?"currentepisode":""}`}
           >
             {link.number}
           </button>

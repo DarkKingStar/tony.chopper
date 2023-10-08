@@ -75,9 +75,11 @@ nav{
     /* Define the animation */
     @keyframes slideInTop {
         from {
+            background-color: transparent;
             transform: translateY(-100%);
         }
         to {
+            background-color: #CF2642;
             transform: translateY(0);
         }
     }
