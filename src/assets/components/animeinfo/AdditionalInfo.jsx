@@ -3,11 +3,11 @@ import React from 'react';
 const AdditionalInfo = ({ otherName, type, status, releaseDate, totalEpisodes }) => {
   return (
     <div>
-      <p>Other name: {otherName}</p>
-      <p>Type: {type}</p>
-      <p>Status: {status}</p>
-      <p>Released: {releaseDate}</p>
-      <p>Episodes: {totalEpisodes}</p>
+      <p><b>Other name:</b> {otherName}</p>
+      <p><b>Type:</b> {type}</p>
+      <p><b>Status:</b> {status}</p>
+      <p><b>Released:</b> {releaseDate}</p>
+      <p><b>Episodes:</b> {totalEpisodes}</p>
     </div>
   );
 };

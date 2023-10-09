@@ -35,6 +35,7 @@ const EpisodesDisplay = ({
           setEnablenext(end >= animeInfo?.episodes?.length ? true : false);
           const episodeSlice = animeInfo?.episodes?.slice(start, end);
           setEpisodeList(episodeSlice);
+          console.log("handleEpList");
         } catch (err) {
           console.error(err);
         } 
@@ -51,6 +52,7 @@ const EpisodesDisplay = ({
           const currentEp = animeInfo?.episodes[linkoption - 1] || animeInfo?.episodes[0];
           const links = await FetchVideoLink(currentEp.id);
           setEpisodeLinks({ id:currentEp.id,number:currentEp.number, ...links });
+          console.log("fetchLinks");
       }catch(err){
         console.log(err);
       }finally{

@@ -12,13 +12,13 @@
     padding: 5px 10px 3px !important;
     background-color: #CF2642;
 }
-.pagination button:hover, .ranging button:hover{
+.pagination button:hover, .ranging button:hover, .episode-box button:hover, .video-option button:hover{ 
     background-color:#F24A66;
     color:  #cccccc;
 }
 .pagination button:disabled{
-  background-color: #cccccc;
-  color: #666666;
+  background-color: #474747;
+  color: #242424;
 }
 .pagination select{
     border-radius: 8px;
@@ -29,7 +29,6 @@
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
     transition: border-color 0.25s;
     outline: none;
 }
@@ -51,31 +50,26 @@
 .episode-box{
     width: 85%;
   margin: 10px auto;
-  background: rgb(0, 0, 0);
   padding: 2% 1%;
   border: none;
   border-radius: 8px;
 }
 .ranging input{
     border-radius: 5px;
-    border: 0.5px solid whitesmoke;
+    border: 0.5px solid rgb(130, 128, 128);
     margin: 1%;
     padding: 0.6em 1.2em;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     width: 100px;
-    background-color: #1a1a1a;
     transition: border-color 0.25s;
-    color:white;
     outline: none;
-}
-.ranging button{
-    background-color: #CF2642;
 }
 .ranging input:focus{
     outline: 1px solid white;
 }
 .currentepisode{
     background-color:  #CF2642;
+    color:white
 }

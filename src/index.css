@@ -73,14 +73,62 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #719fc7;
+    background-color: #f8c8ddc5;
+  }
+  p{
+    color: #3572a7;
+  }
+  h1,h2,h3,h4,h5,h6{
+    color: #3572a7;
   }
   a:hover {
     color: #747bff;
   }
-  button {
-    background-color: #f9f9f9;
+  input{
+    background-color: #c2fcf5;
+    color: #1a1a1b;
+  }
+  button,select {
+    background-color: #80d1c7;
+    color:#95021a;
+  }
+  .footer-container{
+    background-color: #670080;
+  }
+  .anime-name {
+    background: linear-gradient(360deg, #670080 7%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 72%, rgba(255,255,255,0) 100%);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #1e1e1e;
+  }
+  p{
+    color: #ffffff;
+  }
+  h1,h2,h3,h4,h5,h6{
+    color: #ffffff;
+  }
+  a:hover {
+    color: #ffffff;
+  }
+  input{
+    background-color: #151515;
+    color: #ffffff;
+  }
+  button,select {
+    background-color: #1a1a1a;
+  }
+  .footer-container{
+    background-color: #151515;
+  }
+  .episode-box{
+    background-color: #151515;
+  }
+  .anime-name {
+    background: linear-gradient(360deg, rgba(0,0,0,1) 7%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 72%, rgba(0,0,0,0) 100%);
   }
 }
 .row{
