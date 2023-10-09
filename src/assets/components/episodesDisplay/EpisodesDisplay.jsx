@@ -1,5 +1,5 @@
 // EpisodesDisplay.js
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import EpisodeList from './EpisodeList';
 import WatchorDownload from './WatchorDownload';
 import { FetchVideoLink } from '../../fetch/fetchvideolink';
@@ -17,27 +17,48 @@ const EpisodesDisplay = ({
   const [enablenext,setEnablenext] = useState(true);
   const navigate = useNavigate();
   let { animeId } = useParams();
+ const memoizedParams = useMemo(() => {
+    return {
+      animeInfo,
+      currentPage,
+      slicing,
+    };
+  }, [animeInfo, currentPage, slicing]);
+
   useEffect(() => {
-    const fetchLinks = async () => {
+    const handleEpisodeList = () => {
+      const { animeInfo, currentPage,  slicing } = memoizedParams;
+
       if (animeInfo && animeInfo?.episodes) {
         try {
           const end = start + slicing;
-          setEnablenext(end>=animeInfo?.episodes?.length?true:false);
+          setEnablenext(end >= animeInfo?.episodes?.length ? true : false);
           const episodeSlice = animeInfo?.episodes?.slice(start, end);
-          const currentEp = animeInfo?.episodes[linkoption-1] || animeInfo?.episodes[0];
           setEpisodeList(episodeSlice);
-          const links = await FetchVideoLink(currentEp.id);
-          setEpisodeLinks({...currentEp, ...links});
         } catch (err) {
           console.error(err);
-        } finally {
-          setIsLoading(false);
-        }
+        } 
       }
     };
+    handleEpisodeList();
+    
+  }, [memoizedParams]);
 
+  useEffect(()=>{
+    const fetchLinks = async() =>{
+      try{
+          setIsLoading(true);
+          const currentEp = animeInfo?.episodes[linkoption - 1] || animeInfo?.episodes[0];
+          const links = await FetchVideoLink(currentEp.id);
+          setEpisodeLinks({ id:currentEp.id,number:currentEp.number, ...links });
+      }catch(err){
+        console.log(err);
+      }finally{
+        setIsLoading(false);
+      }
+    };
     fetchLinks();
-  }, [animeInfo, currentPage, linkoption, slicing]);
+  },[linkoption])
 
   const handleEpisodeClick = (epnum) => {
     if(watchPageFlag){
