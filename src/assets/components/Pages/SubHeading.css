@@ -8,11 +8,11 @@
 }
 .subhead {
     margin-top: 15px;
-    transition: transform 0.7s ease; 
+    transition: transform 0.4s ease-in-out; 
 }
 
 .subhead.animate {
-    animation: scaleAnimation 0.7s ease-in-out;
+    animation: scaleAnimation 0.4s ease-in-out;
 }
 
 .subhead h1 {
