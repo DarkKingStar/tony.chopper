@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Animeholders from '../animeholders';
 import { FetchAnimeList } from '../../fetch/fetchanimelist';
 import Loading from '../../functions/loading';
@@ -11,8 +11,22 @@ function HomePage() {
   const [tadata, settaData] = useState([]);
   const [loadingta, setLoadingta] = useState(true);
   const [loadingrr, setLoadingrr] = useState(true);
-  const [rrpage, setrrPage] = useState(1);
-  const [tapage, settaPage] = useState(1);
+  const [rrpage, setrrPage] = useState(() => {
+    const storedValue = parseInt(localStorage.getItem('rrpage')) || 1;
+    return storedValue;
+  });
+  const [tapage, settaPage] = useState(() => {
+    const storedValue = parseInt(localStorage.getItem('tapage')) || 1;
+    return storedValue;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('rrpage', rrpage.toString());
+  }, [rrpage]);
+
+  useEffect(() => {
+    localStorage.setItem('tapage', tapage.toString());
+  }, [tapage]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,13 +63,11 @@ function HomePage() {
 
   return (
     <>
-
       <SearchBox/>
       <h1>Recent Releases</h1>
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={rrpage} setPage={setrrPage} Loading={loadingrr} setLoading={setLoadingrr}/>
       {loadingrr ? <Loading /> : (
         <>
-        
           <Animeholders jsonData={rrdata} />
         </>
       )}
@@ -63,7 +75,6 @@ function HomePage() {
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={tapage} setPage={settaPage} Loading={loadingta} setLoading={setLoadingta}/>
       {loadingta ? <Loading /> : (
         <>
-        
           <Animeholders jsonData={tadata} />
         </>
       )}
