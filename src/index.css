@@ -91,7 +91,7 @@ ul{
     color: #0f0f0f;
     background-color: #f8c8ddc5;
     --p-color: #0088ff;
-    --h-color: #3572a7;
+    --h-color: #ff44fc;
     --a-color: #747bff;
     --btn-bg-color:  #6de3d6;
     --btn-tx-color: #95021a;
@@ -105,8 +105,8 @@ ul{
     --input-text-color:#1a1a1a;
     --input-bg-focus-color:#d4f8f4;
     --input-tx-focus-color:#000000;
-    --footer-bg-color:#670080;
-
+    --footer-bg-color:#fa164b;
+    --anime-name:#524f4f;
   }
   
 }
@@ -129,7 +129,8 @@ ul{
     --input-tx-color:#cfcfcf;
     --input-bg-focus-color:#341a1f;
     --input-tx-focus-color:#ffffff;
-    --footer-bg-color:#151515;
+    --footer-bg-color:#fa164b;
+    --anime-name:#0f0f0f;
   
   }
 }
@@ -169,7 +170,7 @@ button:disabled{
   background-color: var(--footer-bg-color);
 }
 .anime-name {
-  background: linear-gradient(0deg, var(--footer-bg-color) 7%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 72%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(0deg, var(--anime-name) 7%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 72%, rgba(255,255,255,0) 100%);
 }
 .currentactive-btn{
   background-color:  var(--btn-bg-active);
