@@ -2,7 +2,6 @@
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -10,6 +9,25 @@
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
   user-select:none;
+  color: rgba(255, 255, 255, 0.87);
+    background-color: #1e1e1e;
+    --p-color: #ffffff;
+    --h-color: #ffffff;
+    --a-color: #ffffff;
+    --btn-bg-color:  #1a1a1a;
+    --btn-tx-color: #f0f0f0;
+    --btn-bg-disable:#474747;
+    --btn-tx-disable: #242424;
+    --btn-bg-active: #CF2642;
+    --btn-tx-active: #e9ef8d;
+    --btn-bg-hover-color: #F24A66;;
+    --btn-tx-hover-color: #ffffff;
+    --input-bg-color:#151515;
+    --input-tx-color:#cfcfcf;
+    --input-bg-focus-color:#341a1f;
+    --input-tx-focus-color:#ffffff;
+    --footer-bg-color:#fa164b;
+    --anime-name:#0f0f0f;
 }
 body{
   overflow: auto;
@@ -86,7 +104,7 @@ ul{
 }
 
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #0f0f0f;
     background-color: #f8c8ddc5;
@@ -133,7 +151,7 @@ ul{
     --anime-name:#0f0f0f;
   
   }
-}
+} */
 
 
 p{
