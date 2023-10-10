@@ -3,22 +3,23 @@
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-around;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 
 .grid-item {
   flex-grow: 1;
+  position: relative;
   flex-basis: calc(25% - 10px); /* Default: 4 items in a row for desktop */
   width: auto;
   background-color: #00000062;
   border-radius: 8px;
   cursor: pointer;
-  transform:translateY(25%) scale(0.8);
+  transform:translateY(100%) scale(0);
   transition: transform 0.5s ease;
 }
 
 .grid-item.animate {
-  transform: translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 
@@ -105,7 +106,7 @@
   border-radius: 8px;
   position: absolute;
   height: 400px;
-  z-index: 9999;
+  z-index: 2;
   transform: translate(-10%,-100%);
   opacity: 0;
   animation: fade-in 0.5s forwards; 
