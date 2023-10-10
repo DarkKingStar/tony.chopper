@@ -137,7 +137,7 @@ const Footer = () => {
           <div className="content">
             <div className="container">
               <div className="footer__label">
-                <h2 className="footer__title">C H O P P E R • I O</h2>
+                <h1 className="footer__title">C H O P P E R • I O</h1>
                 <span className="footer__subtitle">Watch & Download</span>
               </div>
               <div className="footer__copyright">

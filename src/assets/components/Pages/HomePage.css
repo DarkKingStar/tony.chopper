@@ -154,6 +154,11 @@
   background-color: rgb(7, 202, 202);
 }
 
-
-
+.pagechange{
+  display:flex;
+  margin:20px 0 50px;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+}
 

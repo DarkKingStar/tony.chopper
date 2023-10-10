@@ -17,7 +17,7 @@ nav{
     margin: 0 10%;
 }
 .nav-brand{
-    font-size: large;
+    font-size:  calc(1vw + 1.2vh);
     font-family:fantasy;
     font-weight: bold;
     width: fit-content;
@@ -36,6 +36,7 @@ nav{
 .nav-user{
     width: 80px;
     padding: 15px 0;
+    font-size: calc(0.5vw + 0.9vh);
     text-align: center;
 }
 

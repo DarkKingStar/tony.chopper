@@ -1,6 +1,6 @@
 const Pagechangeoption=({handlePageChange, Pageno, setPage, Loading, setLoading})=> {
     return (<>
-    <div className="container md-2" style={{display:"flex",margin:"20px 0 50px",alignItems:"center",justifyContent:"center",width:"100%"}}>
+    <div className="container md-2 pagechange">
         <button className=' mx-2' disabled={Pageno === 1 || Loading} onClick={() => handlePageChange(setPage, -1,setLoading)}>{'<'}</button>
         <h3 style={{width:"fit-content",margin:"0"}}>{Pageno}</h3>
         <button className=' mx-2' disabled={Loading} onClick={() => handlePageChange(setPage, 1,setLoading)}>{'>'}</button>
