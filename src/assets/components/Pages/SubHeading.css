@@ -1,0 +1,43 @@
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.subhead {
+    margin-top: 15px;
+    transition: transform 0.7s ease; 
+}
+
+.subhead.animate {
+    animation: scaleAnimation 0.7s ease-in-out;
+}
+
+.subhead h1 {
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: fit-content;
+  text-align: center;
+  margin: auto;
+  white-space: nowrap;
+  padding-bottom: 13px;
+}
+.subhead h1:before {
+  background-color: var(--btn-bg-active);
+  content: "";
+  display: block;
+  height: 3px;
+  width: auto;
+  margin-bottom: 5px;
+}
+.subhead h1:after {
+  background-color: var(--btn-bg-active);
+  content: "";
+  display: block;
+  height: 3px;
+  width: auto;
+  margin-bottom: 0.25em;
+}

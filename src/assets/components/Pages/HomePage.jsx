@@ -5,6 +5,7 @@ import Loading from '../../functions/loading';
 import "./HomePage.css";
 import SearchBox from '../searchbox';
 import Pagechangeoption from '../pagechangeoption';
+import SubHeading from './SubHeading';
 
 function HomePage() {
   const [rrdata, setrrData] = useState([]);
@@ -64,14 +65,14 @@ function HomePage() {
   return (
     <>
       <SearchBox/>
-      <h1>Recent Releases</h1>
+      <SubHeading text={"Recent Releases"}/>
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={rrpage} setPage={setrrPage} Loading={loadingrr} setLoading={setLoadingrr}/>
       {loadingrr ? <Loading /> : (
         <>
           <Animeholders jsonData={rrdata} />
         </>
       )}
-      <h1>Top Airing</h1>
+      <SubHeading text={"Top Airing"}/>
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={tapage} setPage={settaPage} Loading={loadingta} setLoading={setLoadingta}/>
       {loadingta ? <Loading /> : (
         <>
