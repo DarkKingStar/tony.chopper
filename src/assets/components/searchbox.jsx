@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FetchSearchData } from "../fetch/fetchsearchdata";
-import Animeholders from "./animeholders";
+import Animeholders from "./animedisplayhome/animeholders";
 import "./searchbox.css";
 import { useNavigate } from 'react-router-dom';
 
