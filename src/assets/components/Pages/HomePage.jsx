@@ -4,6 +4,7 @@ import { FetchAnimeList } from '../../fetch/fetchanimelist';
 import Loading from '../../functions/loading';
 import "./HomePage.css";
 import SearchBox from '../searchbox';
+import Pagechangeoption from '../pagechangeoption';
 
 function HomePage() {
   const [rrdata, setrrData] = useState([]);
@@ -54,22 +55,14 @@ function HomePage() {
       {loadingrr ? <Loading /> : (
         <>
           <Animeholders jsonData={rrdata} />
-          <h3>Page: {rrpage}</h3>
-          <div className="container md-2">
-            <button className=' mx-2' onClick={() => handlePageChange(setrrPage, -1,setLoadingrr)}>{'<'}</button>
-            <button className=' mx-2' onClick={() => handlePageChange(setrrPage, 1,setLoadingrr)}>{'>'}</button>
-          </div>
+          <Pagechangeoption handlePageChange={handlePageChange} Pageno={rrpage} setPage={setrrPage} setLoading={setLoadingrr}/>
         </>
       )}
       <h1>Top Airing</h1>
       {loadingta ? <Loading /> : (
         <>
           <Animeholders jsonData={tadata} />
-          <h3>Page: {tapage}</h3>
-          <div className="container md-2">
-            <button className=' mx-2' onClick={() => handlePageChange(settaPage, -1,setLoadingta)}>{'<'}</button>
-            <button className=' mx-2' onClick={() => handlePageChange(settaPage, 1,setLoadingta)}>{'>'}</button>
-          </div>
+          <Pagechangeoption handlePageChange={handlePageChange} Pageno={tapage} setPage={settaPage} setLoading={setLoadingta}/>
         </>
       )}
     </>
