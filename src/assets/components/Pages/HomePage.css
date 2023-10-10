@@ -3,7 +3,6 @@
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-around;
-  overflow: hidden;
 }
 
 .grid-item {
@@ -14,14 +13,7 @@
   background-color: #00000062;
   border-radius: 8px;
   cursor: pointer;
-  transform:translateY(25%) scale(0.8);
-  transition: transform 0.5s ease;
 }
-
-.grid-item.animate {
-  transform: translateY(0) scale(1);
-}
-
 
 @media screen and (max-width: 1024px) {
   .grid-item {
