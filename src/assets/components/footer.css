@@ -10,7 +10,7 @@
     display: grid;
     position: relative;
     grid-area: footer;
-    min-height: 180px;
+    min-height: 220px;
   }
  .footer .bubbles {
     position: absolute;
@@ -32,6 +32,7 @@
   }
   .footer .content {
     background: var(--footer-bg-color);
+    margin-top: 50px;
     z-index: 2;
   }
   .footer .content .container {
