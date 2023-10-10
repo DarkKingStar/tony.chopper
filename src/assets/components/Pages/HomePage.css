@@ -150,6 +150,9 @@
   width: 100%;
   align-items: center;
 }
+.visitbtn-div button{
+  background-color: rgb(7, 202, 202);
+}
 
 
 
