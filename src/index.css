@@ -194,7 +194,7 @@ button:disabled{
 }
 
 h1{
-  font-size: calc(2vw + 1.2vh) ;
+  font-size: calc(2vw + 1.5vh) ;
 }
 button{
   font-size: calc(0.6vw + 1vh);
