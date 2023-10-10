@@ -4,7 +4,8 @@
     z-index: 9999;
     top:0;
     left:0;
-    background-color: #CF2642;
+    background-color: var(--btn-bg-active);
+    color:var(--btn-tx-active);
 }
 nav{
     text-align: start;
@@ -36,9 +37,6 @@ nav{
     padding: 15px 0;
     text-align: center;
 }
-.nav-item:hover, .nav-user:hover{
-    background-color: #F24A66;
-}
 
 
 .nav-toggle {
@@ -64,7 +62,6 @@ nav{
         width: 100%;
         flex-direction: column;
         position: absolute;
-        background-color: #CF2642;
         top: 100%;
         left: 0;
         right: 0;
@@ -79,7 +76,7 @@ nav{
             transform: translateY(-100%);
         }
         to {
-            background-color: #CF2642;
+            background-color: var(--btn-bg-color);
             transform: translateY(0);
         }
     }

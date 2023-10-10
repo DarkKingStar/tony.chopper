@@ -11,7 +11,7 @@ const WatchorDownload = ({ linkoption, isLoading , animeId}) => {
         <button key={link?.quality} 
         style={{display:`${/^\d/.test(link?.quality)?'content':'none'}`}}
         disabled={isLoading}
-        className={`${(qvalue == link?.quality)?'reso-p-links currentepisode':'reso-p-links'}`}
+        className={`${(qvalue == link?.quality)?'reso-p-links currentactive-btn':'reso-p-links'}`}
         onClick={() => navigate(`/watch/${animeId}?e=${linkoption.id}&q=${link?.quality}`)} >
           {link?.quality}
         </button>

@@ -32,7 +32,7 @@ const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage
               handleEpisodeClick(link.number);
               //add the code here
           }}
-            className={`${((evalue?.split('-')[evalue?.split('-').length - 1] == link?.number) || (!watchPageFlag && linkoption == link?.number)) ?"currentepisode":""}`}
+            className={`${((evalue?.split('-')[evalue?.split('-').length - 1] == link?.number) || (!watchPageFlag && linkoption == link?.number)) ?"currentactive-btn":""}`}
           >
             {link.number}
           </button>

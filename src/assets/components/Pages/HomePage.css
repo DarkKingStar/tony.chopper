@@ -10,7 +10,7 @@
   position: relative;
   flex-basis: calc(25% - 10px); /* Default: 4 items in a row for desktop */
   width: auto;
-  background-color: #00000083;
+  background-color: #00000062;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -150,14 +150,7 @@
   width: 100%;
   align-items: center;
 }
-.visitbtn-div button{
-  background-color: #00CCCC;
-  color: white ;
-  transition: all 0.5s ease-in-out;
-}
-.visitbtn-div button:hover{
-  background-color: #adf7f7;
-  color: rgb(0, 175, 154) ;
-}
+
+
 
 
