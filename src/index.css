@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
@@ -166,9 +166,7 @@ button:disabled{
   background-color: var(--btn-bg-disable);
   color:var(--btn-tx-disable);
 }
-.footer-container{
-  background-color: var(--footer-bg-color);
-}
+
 .anime-name {
   background: linear-gradient(0deg, var(--anime-name) 7%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 72%, rgba(255,255,255,0) 100%);
 }

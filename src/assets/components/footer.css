@@ -1,16 +1,19 @@
 .footer-container{
-    width:100%;
-    position: absolute;
-    left:0;
-    margin-top: 100px;
+  display: grid;
+  grid-template-rows: 1fr 10rem auto;
+  grid-template-areas: "main" "." "footer";
+  overflow-x: hidden;
+  position: absolute;
+  left: 0;
+  min-width: 100vw;
+  font-family: "Open Sans", sans-serif;
   }
-
- .footer {
+  .footer {
     z-index: 1;
     display: grid;
     position: relative;
     grid-area: footer;
-    min-height: 220px;
+    min-height: 12rem;
   }
  .footer .bubbles {
     position: absolute;
@@ -21,7 +24,7 @@
     background: var(--footer-bg-color);
     filter: url("#blob");
   }
-  .footer .bubbles .bubble {
+  body .footer .bubbles .bubble {
     position: absolute;
     left: var(--position, 50%);
     background: var(--footer-bg-color);
@@ -30,27 +33,32 @@
             animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
     transform: translate(-50%, 100%);
   }
-  .footer .content {
+  body .footer .content {
+    padding: 6rem 1rem 2rem;
     background: var(--footer-bg-color);
-    margin-top: 50px;
     z-index: 2;
   }
   .footer .content .container {
+    max-width: 768px;
+    margin: 0 auto;
     display: grid;
+    color: #fff;
   }
   
   .content h2 {
-    font-size: xx-large;
     margin-bottom: 0;
+    font-size: 2.25rem;
   }
-  .footer__copyright{
-    margin-top: 2.2rem;
-    margin-bottom: 0;
-  }
+  
   .content span {
-    font-size: smaller;
+    font-size: .775rem;
   }
- 
+  
+  
+  
+
+  
+  
   @-webkit-keyframes bubble-size {
     0%, 75% {
       width: var(--size, 4rem);
@@ -88,3 +96,4 @@
       bottom: var(--distance, 10rem);
     }
   }
+  
