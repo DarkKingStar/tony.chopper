@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import Animeholders from '../animedisplayhome/animeholders';
+import Animeholders from '../animeholders';
 import { FetchAnimeList } from '../../fetch/fetchanimelist';
 import Loading from '../../functions/loading';
 import "./HomePage.css";
