@@ -52,18 +52,18 @@ function HomePage() {
   return (
     <>
       <SearchBox/>
-      <SubHeading text={"Recent Releases"}/>
-      <Pagechangeoption handlePageChange={handlePageChange} Pageno={rrpage} setPage={setrrPage} Loading={loadingrr} setLoading={setLoadingrr}/>
-      {loadingrr ? <Loading /> : (
-        <>
-          <Animeholders jsonData={rrdata} />
-        </>
-      )}
-      <SubHeading text={"Top Airing"}/>
+      <SubHeading text={"Trending"}/>
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={tapage} setPage={settaPage} Loading={loadingta} setLoading={setLoadingta}/>
       {loadingta ? <Loading /> : (
         <>
           <Animeholders jsonData={tadata} />
+        </>
+      )}
+      <SubHeading text={"Latest Update"}/>
+      <Pagechangeoption handlePageChange={handlePageChange} Pageno={rrpage} setPage={setrrPage} Loading={loadingrr} setLoading={setLoadingrr}/>
+      {loadingrr ? <Loading /> : (
+        <>
+          <Animeholders jsonData={rrdata} />
         </>
       )}
     </>
