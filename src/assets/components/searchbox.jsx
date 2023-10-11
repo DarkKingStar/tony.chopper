@@ -26,7 +26,7 @@ function SearchBox() {
 
     return (
         <>
-        <div className="container mt-2">
+        <div className="container">
         <form onSubmit={handleSubmit}>
 
         <div className="searchbar">

@@ -6,6 +6,7 @@ import "./HomePage.css";
 import SearchBox from '../searchbox';
 import Pagechangeoption from '../pagechangeoption';
 import SubHeading from './SubHeading';
+import BackgroundImage from '../BackgroundImage';
 
 function HomePage() {
   const [rrdata, setrrData] = useState([]);
@@ -51,6 +52,7 @@ function HomePage() {
 
   return (
     <>
+      <BackgroundImage/>
       <SearchBox/>
       <SubHeading text={"Top Airing"}/>
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={tapage} setPage={settaPage} Loading={loadingta} setLoading={setLoadingta}/>
