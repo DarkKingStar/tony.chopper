@@ -1,32 +1,17 @@
-import React, { useRef, useEffect, useState } from 'react';
 import "./SubHeading.css";
-
+import { motion } from "framer-motion";
 const SubHeading = ({ text }) => {
-    const subheadRef = useRef(null);
-    const [isInView, setIsInView] = useState(false);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setIsInView(true);
-                } else {
-                    setIsInView(false);
-                }
-            });
-        });
-
-        observer.observe(subheadRef.current);
-
-        return () => {
-            observer.disconnect();
-        };
-    }, []);
-
     return (
-        <div className={`subhead ${isInView ? 'animate' : ''}`} ref={subheadRef}>
+        <motion.div
+        initial={{scaleY:0}}
+        whileInView={{scaleY:1}}
+        viewport={{ once: false }}
+        transition={{ease: "easeIn", duration: 0.25}}
+        >
+        <div className='subhead'>
             <h1>{text}</h1>
         </div>
+        </motion.div>
     );
 }
 

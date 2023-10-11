@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  background-color: transparent;
   justify-content: space-around;
 }
 
@@ -10,7 +11,7 @@
   position: relative;
   flex-basis: calc(25% - 10px); /* Default: 4 items in a row for desktop */
   width: auto;
-  background-color: #00000062;
+  background-color: transparent;
   border-radius: 8px;
   cursor: pointer;
 }
