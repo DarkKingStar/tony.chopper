@@ -12,22 +12,9 @@ function HomePage() {
   const [tadata, settaData] = useState([]);
   const [loadingta, setLoadingta] = useState(true);
   const [loadingrr, setLoadingrr] = useState(true);
-  const [rrpage, setrrPage] = useState(() => {
-    const storedValue = parseInt(localStorage.getItem('rrpage')) || 1;
-    return storedValue;
-  });
-  const [tapage, settaPage] = useState(() => {
-    const storedValue = parseInt(localStorage.getItem('tapage')) || 1;
-    return storedValue;
-  });
+  const [rrpage, setrrPage] = useState(1);
+  const [tapage, settaPage] = useState(1);
 
-  useEffect(() => {
-    localStorage.setItem('rrpage', rrpage.toString());
-  }, [rrpage]);
-
-  useEffect(() => {
-    localStorage.setItem('tapage', tapage.toString());
-  }, [tapage]);
 
   useEffect(() => {
     const fetchData = async () => {
