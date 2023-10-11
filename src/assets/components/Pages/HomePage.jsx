@@ -52,7 +52,7 @@ function HomePage() {
   return (
     <>
       <SearchBox/>
-      <SubHeading text={"Trending"}/>
+      <SubHeading text={"Top Airing"}/>
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={tapage} setPage={settaPage} Loading={loadingta} setLoading={setLoadingta}/>
       {loadingta ? <Loading /> : (
         <>

@@ -7,7 +7,7 @@
 }
 
 .grid-item {
-  flex-grow: 1;
+  /* flex-grow: 1; */
   position: relative;
   flex-basis: calc(25% - 10px); /* Default: 4 items in a row for desktop */
   width: auto;
