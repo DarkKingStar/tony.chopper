@@ -8,6 +8,9 @@ import EpisodesDisplay from '../episodesDisplay/EpisodesDisplay';
 import "./WatchPage.css"
 import { M3u8toMp4 } from '../../fetch/m3u8tomp4';
 import { useNavigate } from 'react-router-dom';
+import FadeInFromLeft from '../../functions/FadeinFromLeft';
+import FadeInFromRight from '../../functions/FadeInFromRight';
+import ScaleIn from '../../functions/ScaleIn';
 
 const WatchPage = () =>{
     let { animeId } = useParams();
@@ -83,19 +86,22 @@ const WatchPage = () =>{
     return (
         <>
             {loading?<><LoadingSpinner/></>:
-            <>
+            <div style={{overflow:"hidden"}}>
             <div className="container">
-                <h1>{animeInfo?.title}</h1>
-                <h2>Episode : {epId.split('-')[epId.split('-').length - 1]}</h2>
+               <FadeInFromLeft value={<h1>{animeInfo?.title}</h1>}/>
+                <FadeInFromRight value={<h2>Episode : {epId.split('-')[epId.split('-').length - 1]}</h2>}/>
             </div>
             <div className='download-wrapper'>
-                <button id="downloadEpisodebtn" onClick={handleDownload}>
-                    Download
-                </button>
+                <FadeInFromLeft value={
+                    <button id="downloadEpisodebtn" onClick={handleDownload}>
+                        <ScaleIn value={"Download"}/>
+                    </button>
+                }/>
                 <div className='download-progress'>
                 {downloadProgress > 0 && `Downloading: ${downloadProgress.toFixed(2)}%`}
                 </div>
             </div>
+            <FadeInFromRight value={
             <div className='player-wrapper'>
                     <ReactPlayer
                     url={link}
@@ -109,9 +115,9 @@ const WatchPage = () =>{
                     onStart={handleUnmute}
                     />
             </div>
-            
+            }/>
             <EpisodesDisplay animeInfo={animeInfo} watchPageFlag={true} currentEpisodeNumber={epId.slice(epId.lastIndexOf('-')+1)}/>
-            </>}
+            </div>}
             
         </>
     );

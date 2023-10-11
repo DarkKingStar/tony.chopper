@@ -96,7 +96,7 @@ const EpisodesDisplay = ({
     }
   };
   return (
-    <div>
+    <div style={{overflow:'hidden'}}>
       <EpisodeList
         episodeList={episodeList}
         linkoption={linkoption}

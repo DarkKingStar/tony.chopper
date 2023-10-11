@@ -1,5 +1,8 @@
 // EpisodeList.js
 import React, { useState } from 'react';
+import FadeInFromRight from '../../functions/FadeInFromRight';
+import FadeInFromLeft from '../../functions/FadeinFromLeft';
+import ScaleIn from '../../functions/ScaleIn';
 
 
 const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage, enablenext, goToNextPage, 
@@ -18,13 +21,15 @@ const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage
   return (
     <div>
       {/* Jump to episode input*/}
+      <FadeInFromLeft value={
       <div className='ranging'>
         <input type="text" value={jumpTo||""} onChange={handleInputChange} placeholder='Jump To....'/>
-        <button onClick={()=>handleJumpTo(jumpTo)}>Go</button>
-      </div>
+        <button onClick={()=>handleJumpTo(jumpTo)}><ScaleIn value={"Go"}/></button>
+      </div>}/>
 
       {/* Display Episodes */}
-      <div className="episode-box">
+      <FadeInFromRight value={
+        <div className="episode-box">
         {episodeList.map((link) => (
           <button 
             key={link.number}
@@ -34,12 +39,14 @@ const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage
           }}
             className={`${((evalue?.split('-')[evalue?.split('-').length - 1] == link?.number) || (!watchPageFlag && linkoption == link?.number)) ?"currentactive-btn":""}`}
           >
-            {link.number}
+            <ScaleIn value={link?.number}/>
           </button>
         ))}
       </div>
-
+      }/>
+      
       {/* Navigation Buttons */}
+      <FadeInFromLeft value={
       <div className="pagination">
         <button onClick={goToPreviousPage} disabled={currentPage === 1}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24px"  height="24px">
@@ -64,7 +71,7 @@ const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage
         </svg>
         </button>
       </div>
-
+      }/>
 
       
     </div>

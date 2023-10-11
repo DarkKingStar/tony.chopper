@@ -1,6 +1,8 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { FetchAnimeInfo } from "../fetch/fetchanimeinfo";
 import GridItem from "./gridItem";
+import { LazyMotion, domAnimation, m } from "framer-motion"
+
 
 const Animeholders = (props) => {
     const data = useMemo(() => props.jsonData.results, [props.jsonData.results]);
@@ -29,16 +31,22 @@ const Animeholders = (props) => {
     return (
       <>
         <div className="container">
-          <div className="grid-container">
-            {data?.map((item, index) => (
-              <GridItem
-                key={index}
-                item={item}
-                animeinfo={animeinfo}
-                loading={loading}
-              />
-            ))}
-          </div>
+          <LazyMotion features={domAnimation}>
+            <m.div 
+            initial={{opacity : 0}}
+            animate={{ opacity: 1 }} >
+              <div className="grid-container">
+                {data?.map((item, index) => (
+                  <GridItem
+                    key={index}
+                    item={item}
+                    animeinfo={animeinfo}
+                    loading={loading}
+                  />
+                ))}
+              </div>
+            </m.div>
+          </LazyMotion>
         </div>
       </>
     );
