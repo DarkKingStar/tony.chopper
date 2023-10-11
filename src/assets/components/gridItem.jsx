@@ -12,7 +12,7 @@ const GridItem = ({ item, animeinfo, loading }) => {
     <div className="grid-item">
         <motion.div
         initial={{ opacity:0.5, filter:"blur(20px)",scaleY:0.5, rotateY:"180deg"}}
-        whileInView={{ opacity:1, filter:"none" , scaleY:1, rotateY:"0deg"}}
+        whileInView={{ opacity:1, filter:"blur(0px)" , scaleY:1, rotateY:"0deg"}}
         viewport={{ once: false }}
         transition={{ease: "easeIn", duration: 0.3, delay: 0.1}}
       >
