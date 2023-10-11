@@ -36,6 +36,7 @@ const WatchPage = () =>{
                 }
             })
             setLoading(false);
+            window.scrollTo(0, 0);
         }
         fetchLink();
     },[ epId, qvalue]);
@@ -89,7 +90,7 @@ const WatchPage = () =>{
             <div style={{overflow:"hidden"}}>
             <div className="container">
                <FadeInFromLeft value={<h1>{animeInfo?.title}</h1>}/>
-                <FadeInFromRight value={<h2>Episode : {epId.split('-')[epId.split('-').length - 1]}</h2>}/>
+                <FadeInFromRight value={<h2>Episode : {epId.split('-')[epId.split('-').length - 1]} {"("}{qvalue}{")"}</h2>}/>
             </div>
             <div className='download-wrapper'>
                 <FadeInFromLeft value={

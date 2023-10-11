@@ -67,6 +67,7 @@ const EpisodesDisplay = ({
       const qvalue = new URLSearchParams(window.location.search).get('q');
       const evalue = new URLSearchParams(window.location.search).get('e');
       navigate(`/watch/${animeId}?e=${evalue.slice(0,evalue.lastIndexOf('-')+1)+ epnum}&q=${qvalue}`);
+      window.scrollTo(0, 0);
     }
     setlinkoption(epnum);
     setIsLoading(true);
