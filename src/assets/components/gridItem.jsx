@@ -16,10 +16,10 @@ const GridItem = ({ item, animeinfo, loading, handleShowSearchBar, navbarSearch 
   return (
     <div className="grid-item">
         <motion.div
-        initial={{ opacity:0, scaleY:0}}
-        whileInView={{ opacity:1, scaleY:1}}
+        initial={{ opacity:0, scale:0}}
+        whileInView={{ opacity:1, scale:1}}
         viewport={{ once: false }}
-        transition={{ease:"circInOut", duration: 0.1, delay: 0.15}}
+        transition={{ease:"circInOut", duration: 0.05, delay: 0.1}}
       >
       <div className="poster item">
         <LazyImage src={item.image} alt={item.id} />
