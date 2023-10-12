@@ -26,7 +26,7 @@ function SearchBox({handleShowSearchBar,navbarSearch}) {
 
     return (
         <>
-        <div className="container">
+        <div className="container" style={{marginTop:"5px"}}>
         <form onSubmit={handleSubmit}>
 
         <div className="searchbar">
