@@ -1,5 +1,5 @@
 import React from 'react';
-import './BackgroundImage.css'; // Create this CSS file for styling
+import './BackgroundImage.css';
 
 const BackgroundImage = () => {
   return (

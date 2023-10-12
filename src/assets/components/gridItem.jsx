@@ -50,7 +50,7 @@ const GridItem = ({ item, animeinfo, loading, handleShowSearchBar, navbarSearch 
                 <div className="hover-description">
                   <b>Genres:</b>{" "}{animeinfo[item.id].genres?.join(", ")}
                   <br />
-                  <b>Status:</b>{" "}{animeinfo[item.id].status}
+                  <b>Status:</b>{" "}{animeinfo[item.id].releaseDate} {animeinfo[item.id].status}
                   <br />
                   <b>Episodes:</b>{" "}{animeinfo[item.id].episodes?.length}
                   <br />
