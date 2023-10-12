@@ -16,8 +16,8 @@ const GridItem = ({ item, animeinfo, loading, handleShowSearchBar, navbarSearch 
   return (
     <div className="grid-item">
         <motion.div
-        initial={{ opacity:0.5, filter:"blur(20px)",scaleY:0.5, rotateY:"180deg"}}
-        whileInView={{ opacity:1, filter:"blur(0px)" , scaleY:1, rotateY:"0deg"}}
+        initial={{ opacity:0, scaleY:0.5}}
+        whileInView={{ opacity:1, scaleY:1}}
         viewport={{ once: false }}
         transition={{ease: "easeIn", duration: 0.3, delay: 0.1}}
       >
