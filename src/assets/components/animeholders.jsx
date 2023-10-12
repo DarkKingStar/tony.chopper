@@ -42,6 +42,8 @@ const Animeholders = (props) => {
                     item={item}
                     animeinfo={animeinfo}
                     loading={loading}
+                    handleShowSearchBar={props?.handleShowSearchBar} 
+                    navbarSearch={props?.navbarSearch}
                   />
                 ))}
               </div>

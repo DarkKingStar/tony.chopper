@@ -5,9 +5,14 @@ import LoadingSpinner from "../functions/LoadingSpinner";
 import { useNavigate } from "react-router-dom"; 
 import { motion } from "framer-motion";
 
-const GridItem = ({ item, animeinfo, loading }) => {
+const GridItem = ({ item, animeinfo, loading, handleShowSearchBar, navbarSearch }) => {
   const navigate = useNavigate();
-
+  const handleNavigate = () =>{
+    navigate("/info/"+item.id);
+    if(navbarSearch){
+      handleShowSearchBar();
+    }
+  }
   return (
     <div className="grid-item">
         <motion.div
@@ -58,7 +63,7 @@ const GridItem = ({ item, animeinfo, loading }) => {
             )}
             {animeinfo[item.id] ? (
               <div className="visitbtn-div">
-                <button title="Click to View" onClick={() => navigate(`/info/${item.id}`)}>Watch</button>
+                <button title="Click to View" onClick={handleNavigate}>Watch</button>
               </div>
             ) : (
               <>Not Available</>

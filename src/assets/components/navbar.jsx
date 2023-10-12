@@ -45,7 +45,7 @@ const Navbar = () => {
                     </nav>
                 </div>
             </div>
-            {showSearchBar && <SearchBox/>}
+            {showSearchBar && <SearchBox navbarSearch={true} handleShowSearchBar={handleShowSearchBar}/>}
         </>
     );
 }

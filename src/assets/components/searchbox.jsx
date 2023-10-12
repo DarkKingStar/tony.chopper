@@ -5,7 +5,7 @@ import "./searchbox.css";
 import { useNavigate } from 'react-router-dom';
 
 
-function SearchBox() {
+function SearchBox({handleShowSearchBar,navbarSearch}) {
     const [sdata, setSdata] = useState([]);
     const [query, setQuery] = useState("");
     const [result,setResult] = useState("");
@@ -47,7 +47,7 @@ function SearchBox() {
         {sdata?.results?.length > 0 &&
         <>
         <h1>Search Result: {result}</h1>
-        <Animeholders jsonData={sdata} />
+        <Animeholders jsonData={sdata} handleShowSearchBar={handleShowSearchBar} navbarSearch={navbarSearch} />
         </>
         }
         {sdata?.results?.length <= 0 && query &&
