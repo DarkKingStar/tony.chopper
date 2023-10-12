@@ -16,7 +16,7 @@ const WatchPage = () =>{
     let { animeId } = useParams();
     const qvalue = new URLSearchParams(window.location.search).get('q');
     const epId = new URLSearchParams(window.location.search).get('e');
-    const [link,setLink] = useState({});
+    const [link,setLink] = useState(null);
     const [animeInfo,setAnimeInfo] = useState([]);
     const [loading,setLoading] = useState(true);
     const [downloadProgress, setDownloadProgress] = useState(0);
@@ -28,15 +28,19 @@ const WatchPage = () =>{
     },[epId])
     useEffect(()=>{
         const fetchLink = async() =>{
-            const data = await FetchVideoLink(epId);
-            data?.sources.map( l=>{
-                if(l.quality == qvalue)
-                {
-                    setLink(l.url);
-                }
-            })
+            try{
+                const data = await FetchVideoLink(epId);
+                data?.sources.map( l=>{
+                    if(l.quality == qvalue)
+                    {
+                        setLink(l.url);
+                    }
+                })
+                window.scrollTo(0, 0);
+            }catch(err){
+                window.scrollTo(0, 0);
+            }
             setLoading(false);
-            window.scrollTo(0, 0);
         }
         fetchLink();
     },[ epId, qvalue]);
@@ -81,9 +85,12 @@ const WatchPage = () =>{
         const handleUnmute = () => {
             setIsMuted(false);
         }
-        if (!animeInfo) {
+        if (loading) {
           return <LoadingSpinner />;
         }
+        if (!link) {
+            return <Error404Page />; // Render a 404 error page here
+          }
     return (
         <>
             {loading?<><LoadingSpinner/></>:
@@ -123,5 +130,14 @@ const WatchPage = () =>{
         </>
     );
 }
+
+const Error404Page = () => {
+    return (
+      <div className='error-page'>
+        <h1>404 - Not Found</h1>
+        <p>The page you are looking for does not exist.</p>
+      </div>
+    );
+  };
 
 export default WatchPage;

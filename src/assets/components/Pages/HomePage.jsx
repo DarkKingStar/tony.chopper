@@ -11,10 +11,18 @@ import BackgroundImage from '../BackgroundImage';
 function HomePage() {
   const [rrdata, setrrData] = useState([]);
   const [tadata, settaData] = useState([]);
+  const [podata,setpoData] = useState([]);
+  const [amdata,setamData] = useState([]);
+
   const [loadingta, setLoadingta] = useState(true);
   const [loadingrr, setLoadingrr] = useState(true);
+  const [loadingpo,setLoadingpo] = useState(true);
+  const [loadingam,setLoadingam] = useState(true);
+  
   const [rrpage, setrrPage] = useState(1);
   const [tapage, settaPage] = useState(1);
+  const [popage,setpoPage] = useState(1);
+  const [ampage,setamPage] = useState(1);
 
 
   useEffect(() => {
@@ -45,6 +53,32 @@ function HomePage() {
     fetchData();
   }, [tapage]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const popularData = await FetchAnimeList(`popular?q=${popage}`);
+        setpoData(popularData);
+        setLoadingpo(false)
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+    fetchData();
+  }, [popage]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const animemovieData = await FetchAnimeList(`animemovies?q=${ampage}`);
+        setamData(animemovieData);
+        setLoadingam(false)
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+    fetchData();
+  }, [ampage]);
+
   const handlePageChange = (setter, delta, setLoading) => {
     setLoading(true);
     setter(prev => Math.max(prev + delta, 1));
@@ -54,6 +88,13 @@ function HomePage() {
     <>
       <BackgroundImage/>
       <SearchBox/>
+      <SubHeading text={"Popular"}/>
+      <Pagechangeoption handlePageChange={handlePageChange} Pageno={popage} setPage={setpoPage} Loading={loadingpo} setLoading={setLoadingpo}/>
+      {loadingpo ? <Loading /> : (
+        <>
+          <Animeholders jsonData={podata} />
+        </>
+      )}
       <SubHeading text={"Top Airing"}/>
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={tapage} setPage={settaPage} Loading={loadingta} setLoading={setLoadingta}/>
       {loadingta ? <Loading /> : (
@@ -66,6 +107,13 @@ function HomePage() {
       {loadingrr ? <Loading /> : (
         <>
           <Animeholders jsonData={rrdata} />
+        </>
+      )}
+      <SubHeading text={"Anime Movies"}/>
+      <Pagechangeoption handlePageChange={handlePageChange} Pageno={ampage} setPage={setamPage} Loading={loadingam} setLoading={setLoadingam}/>
+      {loadingam ? <Loading /> : (
+        <>
+          <Animeholders jsonData={amdata} />
         </>
       )}
     </>
