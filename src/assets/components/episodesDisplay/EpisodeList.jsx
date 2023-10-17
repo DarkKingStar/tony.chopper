@@ -56,7 +56,7 @@ const EpisodeList = ({  episodeList, linkoption, handleEpisodeClick, currentPage
           </g>
         </svg>
         </button>
-        <select  onChange={(e) => handleSlicing(parseInt(e.target.value))}>
+        <select  onSelect={(e) => handleSlicing(parseInt(e.target.value))}>
         <option value={20}>20</option>
         <option value={40}>40</option>
         <option value={50}>50</option>

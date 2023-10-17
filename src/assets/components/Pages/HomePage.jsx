@@ -28,7 +28,7 @@ function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const recentReleasedData = await FetchAnimeList(`recent-release?q=${rrpage}`);
+        const recentReleasedData = await FetchAnimeList("recentRelease",rrpage);
         setrrData(recentReleasedData);
         setLoadingrr(false)
       } catch (error) {
@@ -42,7 +42,7 @@ function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const topAiringData = await FetchAnimeList(`top-airing?q=${tapage}`);
+        const topAiringData = await FetchAnimeList("topAiring",tapage);
         settaData(topAiringData);
         setLoadingta(false)
       } catch (error) {
@@ -56,7 +56,7 @@ function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const popularData = await FetchAnimeList(`popular?q=${popage}`);
+        const popularData = await FetchAnimeList("popular",popage);
         setpoData(popularData);
         setLoadingpo(false)
       } catch (error) {
@@ -69,7 +69,7 @@ function HomePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const animemovieData = await FetchAnimeList(`animemovies?q=${ampage}`);
+        const animemovieData = await FetchAnimeList('animemovies',ampage);
         setamData(animemovieData);
         setLoadingam(false)
       } catch (error) {

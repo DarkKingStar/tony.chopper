@@ -1,9 +1,11 @@
 import { ANIME } from '@consumet/extensions';
-export const FetchAnimeInfo = async(animeId)=>{
+
+export const FetchAnimeServer = async(epId)=>{
     try {
         const gogoanime = new ANIME.Gogoanime();
-        const response = await gogoanime.fetchAnimeInfo(animeId);
-        return response; 
+        const res = await gogoanime.fetchEpisodeServers(epId);
+        return res;
+
     } catch (error) {
         console.error('Error fetching data:', error);
         return null; 

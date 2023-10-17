@@ -1,0 +1,105 @@
+.player-controls{
+   background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 85%, rgba(0, 0, 0, 0.5) 100%);
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   flex-direction: column;
+   z-index: 1;
+   display: flex;
+   justify-content: space-between;
+   opacity: 0;
+   transition: opacity 0.5s ease-in-out forwards;
+}
+.player-controls:hover {
+   opacity: 1;
+}
+.control_Container {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    flex-direction: column;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+   }
+ 
+ .top_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 20px;
+ }
+ 
+ .mid__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: larger;
+ }
+ 
+ .icon__btn__mid{
+    font-size: calc(4vw + 2.5vh);
+    color: rgba(255, 255, 255, 0.8);
+ }
+ .textinVideo{
+    font-size: clamp(11px,14px,17px);
+ }
+ .icon__btn, .volumeBtn {
+    font-size: clamp(20px,24px,28px);
+    padding: 0 10px;
+    color: var(--btn-bg-active);
+ }
+ .control__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+ }
+ .slider__container{
+    width: auto;
+    margin: auto 1%;
+ }
+ .timespan__container{
+    margin: 0px 10px;
+    display: flex;
+ }
+ .inner__controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+ }
+ .inner__controls__left, .inner__controls__right{
+    display: flex;
+    align-items: center;  
+ }
+ .playtimeScroll{
+    width: 100%;
+    height: 1px;
+ }
+ .volumeScroll{
+    height: clamp(20px,24px,28px);
+    cursor: pointer;
+    position: relative;
+    width: clamp(40px,80px,140px);
+    display: none;
+
+ }
+ .volumeBtn{
+    background-color: transparent;
+    border: none;
+    padding: 5px 5px 0px;
+    margin: 0;
+    width: auto;
+    border-radius: 25px;
+    cursor: pointer;   
+   }
+   .volumeBtn:hover{
+      background-color: transparent;
+   }
+   .volumeBtn:hover .volumeScroll{
+      display:inline-block;
+}

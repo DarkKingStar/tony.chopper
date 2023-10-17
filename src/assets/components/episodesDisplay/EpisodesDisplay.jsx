@@ -2,16 +2,16 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import EpisodeList from './EpisodeList';
 import WatchorDownload from './WatchorDownload';
-import { FetchVideoLink } from '../../fetch/fetchvideolink';
+
 import { useNavigate, useParams } from 'react-router-dom';
 const EpisodesDisplay = ({
  animeInfo, watchPageFlag, currentEpisodeNumber
 }) => {
-  const [episodeLinks, setEpisodeLinks] = useState([]);
+  
   const [episodeList, setEpisodeList] = useState([]);
   const [linkoption, setlinkoption] = useState(currentEpisodeNumber || 1);
   const [currentPage, setCurrentPage] = useState((Math.ceil(Number(currentEpisodeNumber)/20)) || 1);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading,setIsLoading] = useState(true);
   const [slicing,setSlicing] = useState(20);
   const [start,setStart] = useState((20*(Math.ceil(Number(currentEpisodeNumber)/20)-1)) || 0);
   const [enablenext,setEnablenext] = useState(true);
@@ -43,23 +43,6 @@ const EpisodesDisplay = ({
     handleEpisodeList();
     
   }, [memoizedParams]);
-
-  useEffect(()=>{
-    const fetchLinks = async() =>{
-      try{
-          setIsLoading(true);
-          const currentEp = animeInfo?.episodes[linkoption - 1] || animeInfo?.episodes[0];
-          const links = await FetchVideoLink(currentEp.id);
-          setEpisodeLinks({ id:currentEp.id,number:currentEp.number, ...links });
-      }catch(err){
-        console.log(err);
-      }finally{
-        setIsLoading(false);
-      }
-    };
-    fetchLinks();
-  },[linkoption])
-
   const handleEpisodeClick = (epnum) => {
     if(watchPageFlag){
       const qvalue = new URLSearchParams(window.location.search).get('q');
@@ -110,7 +93,8 @@ const EpisodesDisplay = ({
         lastepisodenumber={animeInfo?.episodes?.length}
         watchPageFlag={watchPageFlag || false}
       />
-      <WatchorDownload linkoption={episodeLinks} animeId={animeInfo.id} isLoading={isLoading} />
+      
+      <WatchorDownload linkoption={linkoption} animeInfo={animeInfo} />
     </div>
   );
 };

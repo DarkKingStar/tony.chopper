@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import FadeInFromLeft from '../../functions/FadeinFromLeft';
 import FadeInFromRight from '../../functions/FadeInFromRight';
 import ScaleIn from '../../functions/ScaleIn';
+import VideoPlayer from '../VideoPlayer';
 
 const WatchPage = () =>{
     let { animeId } = useParams();
@@ -21,8 +22,8 @@ const WatchPage = () =>{
     const [loading,setLoading] = useState(true);
     const [downloadProgress, setDownloadProgress] = useState(0);
     const [currentEpisodeNumber,setCurrentEpisodeNumber] = useState(epId.slice(epId.lastIndexOf('-')+1));
-    const [isMuted, setIsMuted] = useState(true);
-    const navigate = useNavigate();
+    // const [isMuted, setIsMuted] = useState(true);
+    // const navigate = useNavigate();
     useEffect(()=>{
         setCurrentEpisodeNumber(epId.slice(epId.lastIndexOf('-')+1))
     },[epId])
@@ -43,7 +44,7 @@ const WatchPage = () =>{
             setLoading(false);
         }
         fetchLink();
-    },[ epId, qvalue]);
+    },[ epId, qvalue, currentEpisodeNumber]);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -77,14 +78,14 @@ const WatchPage = () =>{
             }
         }
 
-        const SwitchTonextEpisode = () =>{
-            if(Number(currentEpisodeNumber) + 1<=animeInfo.episodes.length){
-                navigate(`/watch/${animeId}?e=${epId.slice(0,epId.lastIndexOf('-')+1)}${Number(currentEpisodeNumber)+1}&q=${qvalue}`)
-            }
-        }
-        const handleUnmute = () => {
-            setIsMuted(false);
-        }
+        // const SwitchTonextEpisode = () =>{
+        //     if(Number(currentEpisodeNumber) + 1<=animeInfo.episodes.length){
+        //         navigate(`/watch/${animeId}?e=${epId.slice(0,epId.lastIndexOf('-')+1)}${Number(currentEpisodeNumber)+1}&q=${qvalue}`)
+        //     }
+        // }
+        // const handleUnmute = () => {
+        //     setIsMuted(false);
+        // }
         if (loading) {
           return <LoadingSpinner />;
         }
@@ -110,7 +111,13 @@ const WatchPage = () =>{
                 </div>
             </div>
             <FadeInFromRight value={
-            <div className='player-wrapper'>
+            <>
+            <VideoPlayer 
+            link={link} 
+            currentEpisodeNumber={currentEpisodeNumber} 
+            totalnumberofepisode={animeInfo?.episodes?.length} 
+            videoTitle={`${animeInfo?.title} Ep${currentEpisodeNumber} ${qvalue}`}/>
+            {/* <div className='player-wrapper'>
                     <ReactPlayer
                     url={link}
                     controls
@@ -122,7 +129,8 @@ const WatchPage = () =>{
                     onEnded={SwitchTonextEpisode}
                     onStart={handleUnmute}
                     />
-            </div>
+            </div> */}
+            </>
             }/>
             <EpisodesDisplay animeInfo={animeInfo} watchPageFlag={true} currentEpisodeNumber={epId.slice(epId.lastIndexOf('-')+1)}/>
             </div>}
