@@ -2,7 +2,7 @@ import './footer.css'
 const Footer = () => {
     return ( <>
     <>
-    <div className="footer-container">
+    <div className="footer-container" id="footer">
     <div className="footer">
           <div className="bubbles">
             <div className="bubble" style={{"--size": '3.283778460829012rem', "--distance": '8.273995682244763rem', "--position": '80.43121961838831%', "--time": '3.370470516561046s', "--delay": '-2.4460750377075677s'}} />

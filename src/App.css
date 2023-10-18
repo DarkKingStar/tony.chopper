@@ -3,9 +3,11 @@
   text-align: center;
   scrollbar-gutter: stable both-edges;
 }
-#main-div.Starting-load{
+#main-div.Starting-load, #footer.Starting-load{
   display: none;
+  overflow: hidden;
 }
+
 
 .logo {
   height: 6em;

@@ -16,8 +16,11 @@ function App() {
   useEffect(() => {
     if (loading) {
       document.getElementById('main-div').classList.add('Starting-load');
+      document.getElementById('footer').classList.add('Starting-load');
     } else {
       document.getElementById('main-div').classList.remove('Starting-load');
+      document.getElementById('footer').classList.remove('Starting-load');
+
     }
   }, [loading]);
   return (

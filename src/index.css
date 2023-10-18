@@ -36,12 +36,13 @@ body{
 }
 .main{
   min-height: 100vh;
-  
+  overflow: hidden;
 }
 .container{
   width: 80%;
   margin: auto 10%;
 }
+
 *{
   transition: all 0.45s;
 }
