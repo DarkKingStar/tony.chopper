@@ -112,11 +112,13 @@ const WatchPage = () =>{
             </div>
             <FadeInFromRight value={
             <>
+            <div className="container">
             <VideoPlayer 
             link={link} 
             currentEpisodeNumber={currentEpisodeNumber} 
             totalnumberofepisode={animeInfo?.episodes?.length} 
             videoTitle={`${animeInfo?.title} Ep${currentEpisodeNumber} ${qvalue}`}/>
+            </div>
             {/* <div className='player-wrapper'>
                     <ReactPlayer
                     url={link}
