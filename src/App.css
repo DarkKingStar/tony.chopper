@@ -1,7 +1,10 @@
 #root {
-  max-width: 1280px;
-  margin: 45px auto auto auto;
+  margin: 60px auto auto auto;
   text-align: center;
+  scrollbar-gutter: stable both-edges;
+}
+#main-div.Starting-load{
+  display: none;
 }
 
 .logo {

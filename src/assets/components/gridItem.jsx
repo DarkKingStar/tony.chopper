@@ -22,7 +22,7 @@ const GridItem = ({ item, animeinfo, loading, handleShowSearchBar, navbarSearch 
         transition={{ease:"circInOut", duration: 0.05, delay: 0.1}}
       >
       <div className="poster item">
-        <LazyImage src={item.image} alt={item.id} />
+        <LazyImage src={item.image} alt="" />
       </div>
       <div className="anime-name item">
         <p className="non-hover-p">{TruncateText(item.title, 21)}</p>
@@ -32,7 +32,7 @@ const GridItem = ({ item, animeinfo, loading, handleShowSearchBar, navbarSearch 
         <div className="row">
           <div className="col">
             <div className="img-hover">
-              <LazyImage src={item.image} alt={item.id} />
+              <LazyImage src={item.image} alt="" />
             </div>
           </div>
           <div className="col">

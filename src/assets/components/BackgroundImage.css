@@ -1,11 +1,9 @@
 .background-image-container {
     position: relative;
-    width: 100%;
-    max-width: 100vw; /* Set max width to 50vw for laptop screens */
     overflow: hidden;
     display: flex;
-    align-items: end;
-    justify-content: end;
+    align-items: flex-end;
+    justify-content:flex-end;
   }
   
   .background-image {

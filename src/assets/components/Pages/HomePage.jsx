@@ -8,7 +8,7 @@ import Pagechangeoption from '../pagechangeoption';
 import SubHeading from './SubHeading';
 import BackgroundImage from '../BackgroundImage';
 
-function HomePage() {
+const HomePage=({})=> {
   const [rrdata, setrrData] = useState([]);
   const [tadata, settaData] = useState([]);
   const [podata,setpoData] = useState([]);
