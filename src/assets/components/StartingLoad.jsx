@@ -27,7 +27,12 @@ const StartingLoad = ()=> {
             <div className="gif-staring" style={{
                 width:"100%"
             }}>
-              <div className="container">
+              <div className="container" style={{
+                position:"absolute",
+                top:"50%",
+                left:"50%",
+                transform:"translate(-50%,-50%)"
+              }}>
                 <img src="./startpageload.gif"/> 
               </div>
             </div>
