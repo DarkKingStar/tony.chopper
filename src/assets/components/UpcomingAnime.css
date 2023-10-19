@@ -1,6 +1,6 @@
 .UpcomingAnime{
     display: flex;
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.404);
     border-radius: 8px;
     max-height: 500px;
     max-width: 700px;
@@ -30,7 +30,6 @@
   }
   .UpcomingImage img{
     width: 100%;
-    opacity: 1 !important; 
     margin: auto;
   }
   .UpcomingDetails div{
@@ -48,18 +47,4 @@
     align-items: center;
     width: 100%;
   }
-  @media only screen and (min-width: 935px) {
-    .containerup .UpcomingAnime{
-      display: none !important;
-    }
-    .UpcomingDetails p
-    {
-        font-size: large !important;
-    }
-  }
-  @media only screen and (max-width: 450px) {
-    .UpcomingDetails p
-    {
-        font-size: x-small ;
-    }
-  }
+ 

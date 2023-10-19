@@ -12,7 +12,6 @@ const UpcomingAnime = ({bgImgDivRef})=> {
       const FetchData = async () => {
         const data = await FetchUpcomingAnime(pageNumber);
         setUpcomingData(data);
-        console.log(data);
       }
       FetchData();
     }, [pageNumber]);
