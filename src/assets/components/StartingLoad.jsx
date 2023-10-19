@@ -10,26 +10,25 @@ const StartingLoad = ()=> {
         left:0,
         zIndex:9999,
         background:"#1e1e1e",
-        color:"var(--btn-bg-active)"
+        display:"flex",
+        flexDirection:"column",
+        justifyContent:"space-between",
+        alignItems:"space-between",
+        overflow:"hidden"
         }}
         >
+          <div style={{
+                width:"100%",
+                textAlign:"center"}}>
+          <p style={{color:"var(--btn-bg-active)"}}><b><i>Starting...</i></b></p>
+          </div>
             <div className="gif-staring" style={{
-                position:"absolute",
-                width:"fit-content",
-                top:"50%",
-                left:"50%",
-                textAlign:"center",
-                transform:"translate(-50%,-50%)"
+                width:"100%"
             }}>
-                <img src="./startpageload.gif"/>
-                   <p style={{color:"var(--btn-bg-active)"}}><b><i>Starting...</i></b></p> 
+                <img src="./startpageload.gif"/> 
             </div>
             <div className="content" style={{
-                position:"absolute",
-                width: "100%",
-                bottom:"0",
-                left:"50%",
-                transform:"translate(-50%,0)"
+                width: "100%"
             }}>
             <div className="container">
               <div className="footer__label">
