@@ -61,7 +61,7 @@ const UpcomingAnime = ({bgImgDivRef})=> {
       return () => clearTimeout(timeout); 
     }, [indexcount]);
     return (<>
-        {upcomingData &&
+        {upcomingData?.data &&
         <div className={`UpcomingAnime ${isFading ?  ' ': 'fade-in'}`} id="UpcomingAnime">
         <div className='UpcomingImage' style={{backgroundImage:`url(${
         upcomingData?.data[indexcount]?.images?.webp?.image_url})`}}>
