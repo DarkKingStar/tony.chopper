@@ -1,6 +1,6 @@
-export const FetchUpcomingAnime = async() =>{
+export const FetchUpcomingAnime = async(page) =>{
     try{
-    const response = await fetch('https://api.jikan.moe/v4/seasons/upcoming');
+    const response = await fetch(`https://api.jikan.moe/v4/seasons/upcoming?page=${page}`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }

@@ -3,13 +3,22 @@
     overflow: hidden;
     display: flex;
     align-items: flex-end;
-    justify-content:flex-end;
+    justify-content:space-between;
   }
-  
   .background-image {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
   }
+  @media only screen and (max-width: 936px) {
+    .background-image-container {
+      justify-content: flex-end !important;
+    }
+    .background-image-container .UpcomingAnime{
+      display: none !important;
+    }
+  }
+  
+  
   

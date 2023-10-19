@@ -7,6 +7,7 @@ import SearchBox from '../searchbox';
 import Pagechangeoption from '../pagechangeoption';
 import SubHeading from './SubHeading';
 import BackgroundImage from '../BackgroundImage';
+import UpcomingAnime from '../UpcomingAnime';
 
 const HomePage=({})=> {
   const [rrdata, setrrData] = useState([]);
@@ -88,6 +89,9 @@ const HomePage=({})=> {
     <>
       <BackgroundImage/>
       <SearchBox/>
+      <div className="container" style={{margin:"20px auto"}}>
+        <UpcomingAnime/>
+      </div>
       <SubHeading text={"Popular"}/>
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={popage} setPage={setpoPage} Loading={loadingpo} setLoading={setLoadingpo}/>
       {loadingpo ? <Loading /> : (
