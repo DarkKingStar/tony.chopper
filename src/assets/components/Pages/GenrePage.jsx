@@ -9,6 +9,7 @@ const GenrePage = () =>{
             const data = await FetchGenreList();
             console.log(data);
             setGenreList(data);
+              window.scrollTo(0, 0);
         }
         fetchData();
     },[])
