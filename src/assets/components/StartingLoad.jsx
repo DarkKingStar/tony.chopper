@@ -20,12 +20,16 @@ const StartingLoad = ()=> {
           <div style={{
                 width:"100%",
                 textAlign:"center"}}>
-          <p style={{color:"var(--btn-bg-active)"}}><b><i>Starting...</i></b></p>
+                  <div className="container">
+                    <h3 style={{color:"var(--btn-bg-active)"}}><b><i>Starting...</i></b></h3>
+                  </div>
           </div>
             <div className="gif-staring" style={{
                 width:"100%"
             }}>
+              <div className="container">
                 <img src="./startpageload.gif"/> 
+              </div>
             </div>
             <div className="content" style={{
                 width: "100%"
