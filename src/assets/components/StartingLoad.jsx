@@ -27,7 +27,7 @@ const StartingLoad = ()=> {
             <div className="gif-staring" style={{
                 width:"100%"
             }}>
-              <div className="container" style={{
+              <div style={{
                 position:"absolute",
                 top:"50%",
                 left:"50%",
