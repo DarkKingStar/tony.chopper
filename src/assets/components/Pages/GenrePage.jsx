@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SubHeading from "./SubHeading";
-import { FetchGenreList } from "../../fetch/fetchGenreList";
+import { FetchGenreList } from "../../fetch/fetchgenrelist";
 import "./GenrePage.css"
 const GenrePage = () =>{
     const [genreList,setGenreList] = useState(null);
