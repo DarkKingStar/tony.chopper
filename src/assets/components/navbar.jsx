@@ -22,6 +22,7 @@ const Navbar = () => {
     }
 
     const isHomePage = location.pathname === '/';
+    const isGenrePage = location.pathname === '/genre';
 
     return (
         <>
@@ -37,7 +38,7 @@ const Navbar = () => {
                             <div className="nav-brand">CHOPPER&#x2022;IO</div>
                             <div className={`nav-links ${showLinks ? 'show' : 'dontshow'}`}>
                                 {!isHomePage && <div className="nav-item" onClick={() => {navigate("/");toggleLinks()}}>Home</div>}
-                                <div className="nav-item">Genres</div>
+                                {!isGenrePage && <div className="nav-item" onClick={() => {navigate("/genre");toggleLinks()}}>Genres</div>}
                                 {!isHomePage && <div className="nav-item" onClick={() => {handleShowSearchBar();toggleLinks()}}>Search</div>}
                             </div>
                             <div className="nav-user">Login</div>
