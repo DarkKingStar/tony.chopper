@@ -4,7 +4,7 @@ const StartingLoad = ()=> {
     return (<>
         <div style={{
         width:"100vw",
-        height:"100vh",
+        height:"90vh",
         position:"absolute",
         top:0,
         left:0,
