@@ -89,9 +89,9 @@ const HomePage=({})=> {
     <>
       <BackgroundImage/>
       <SearchBox/>
-      <div className="container" style={{margin:"20px auto"}}>
+      {/* <div className="containerup" style={{margin:"20px auto"}}>
         <UpcomingAnime/>
-      </div>
+      </div> */}
       <SubHeading text={"Popular"}/>
       <Pagechangeoption handlePageChange={handlePageChange} Pageno={popage} setPage={setpoPage} Loading={loadingpo} setLoading={setLoadingpo}/>
       {loadingpo ? <Loading /> : (
