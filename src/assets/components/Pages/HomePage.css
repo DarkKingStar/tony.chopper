@@ -42,7 +42,7 @@
   object-fit: cover;
   border-radius: 8px;
 }
-.anime-name {
+.item-front{
   font-weight: 600;
   background-color: transparent;
   position: absolute;
