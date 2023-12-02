@@ -28,7 +28,7 @@ const HomePage=({})=> {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const recentReleasedData = await FetchAnimeList("recentRelease",rrpage);
+        const recentReleasedData = await FetchAnimeList("recent-released",rrpage);
         setrrData(recentReleasedData);
         setLoadingrr(false)
       } catch (error) {
@@ -43,7 +43,7 @@ const HomePage=({})=> {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const topAiringData = await FetchAnimeList("topAiring",tapage);
+        const topAiringData = await FetchAnimeList("top-airing",tapage);
         settaData(topAiringData);
         setLoadingta(false)
       } catch (error) {

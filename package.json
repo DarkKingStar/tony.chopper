@@ -14,7 +14,7 @@
     "@capacitor/android": "^5.5.0",
     "@capacitor/core": "^5.5.0",
     "@capacitor/ios": "^5.5.0",
-    "@consumet/extensions": "^1.5.2",
+    "@consumet/extensions": "^1.5.4",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-bootstrap-icons": "^1.10.3",
