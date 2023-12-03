@@ -70,7 +70,7 @@ const HomePage=({})=> {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const animemovieData = await FetchAnimeList('animemovies',ampage);
+        const animemovieData = await FetchAnimeList('anime-movies',ampage);
         setamData(animemovieData);
         setLoadingam(false)
       } catch (error) {

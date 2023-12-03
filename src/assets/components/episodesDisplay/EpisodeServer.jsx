@@ -12,6 +12,7 @@ function EpisodeServer(
                     const episodeId = currentepisode.id || null;
                     if(episodeId != null){
                         const servers = await FetchAnimeServer(episodeId);
+                        
                         setServerList(servers);
                         setCurrentServer(servers[0]);
                     }

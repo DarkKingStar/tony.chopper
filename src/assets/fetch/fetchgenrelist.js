@@ -1,6 +1,6 @@
 export const FetchGenreList = async() =>{
     try{
-        const response = await fetch(`https://backendchopper.onrender.com/genrelist`);
+        const response = await fetch(`https://backendchopper.onrender.com/genres`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

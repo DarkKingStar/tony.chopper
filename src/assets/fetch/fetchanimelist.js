@@ -2,7 +2,7 @@ import { ANIME } from '@consumet/extensions';
 
 export const FetchAnimeList = async (type,page) => {
     try {
-        const response = await fetch(`https://backendchopper.onrender.com/${type}?q=${page}`);
+        const response = await fetch(`https://backendchopper.onrender.com/${type}?p=${page}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

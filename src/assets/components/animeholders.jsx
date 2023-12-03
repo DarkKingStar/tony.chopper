@@ -5,7 +5,7 @@ import { LazyMotion, domAnimation, m } from "framer-motion"
 
 
 const Animeholders = (props) => {
-    const data = useMemo(() => props.jsonData.results, [props.jsonData.results]);
+    const data = useMemo(() => props?.jsonData?.results, [props?.jsonData?.results]);
     const [animeinfo, setAnimeinfo] = useState({});
     const [loading, setLoading] = useState(true);
   
@@ -14,7 +14,7 @@ const Animeholders = (props) => {
         const animeInfoArray = await Promise.all(
           data.map(async (item) => {
             const jsonData = await FetchAnimeInfo(item.id);
-            return { id: item.id, data: jsonData };
+            return { id: item?.id, data: jsonData };
           })
         );
         const animeInfoObject = animeInfoArray.reduce(

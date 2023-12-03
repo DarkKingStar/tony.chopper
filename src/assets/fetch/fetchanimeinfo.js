@@ -1,9 +1,11 @@
-import { ANIME } from '@consumet/extensions';
 export const FetchAnimeInfo = async(animeId)=>{
     try {
-        const gogoanime = new ANIME.Gogoanime();
-        const response = await gogoanime.fetchAnimeInfo(animeId);
-        return response; 
+        const response = await fetch(`https://backendchopper.onrender.com/info/${animeId}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const jsonData = await response.json();
+        return jsonData;
     } catch (error) {
         console.error('Error fetching data:', error);
         return null; 
