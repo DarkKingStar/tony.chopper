@@ -17,7 +17,6 @@ function SearchBox({handleShowSearchBar,navbarSearch}) {
 
         try {
             const jsonData = await FetchSearchData(query);
-            console.log(jsonData);
             setSdata(jsonData);
             setResult(query);
         } catch (error) {
