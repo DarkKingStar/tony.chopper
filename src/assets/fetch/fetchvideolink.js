@@ -1,7 +1,6 @@
-export const FetchVideoLink = async(epId,server)=>{
+export const FetchVideoLink = async(epId)=>{
     try {
-        const servername = (server == "Gogo Server"?"gogocnd": server );
-        const response = await fetch(`https://backendchopper.onrender.com/watch/${epId}&q=${servername}`);
+        const response = await fetch(`https://backendchopper.onrender.com/watch/${epId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

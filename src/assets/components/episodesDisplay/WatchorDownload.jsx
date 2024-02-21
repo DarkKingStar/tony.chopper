@@ -3,27 +3,21 @@ import { useNavigate } from "react-router-dom";
 import FadeInFromRight from '../../functions/FadeInFromRight';
 import FadeInFromLeft from '../../functions/FadeinFromLeft';
 import ScaleIn from '../../functions/ScaleIn';
-import EpisodeServer from './EpisodeServer';
 import { FetchVideoLink } from '../../fetch/fetchvideolink';
 const WatchorDownload = ({ linkoption, animeInfo }) => {
   const navigate = useNavigate();
   const qvalue = new URLSearchParams(window.location.search).get('q');
 
   const [isLoading,setIsLoading] = useState(true);
-  const [serverList,setServerList] = useState(null);
-  const [currentServer,setCurrentServer] = useState(null);
   const [videoLink,setVideoLink] = useState(null);
-  const handlechangeServer = (e) =>{
-    setCurrentServer(serverList[e.target.value]);
-  }
+
   useEffect(()=>{
     const episodelink = async() =>{
       try{
-        if(animeInfo && currentServer){
+        if(animeInfo){
           setIsLoading(true);
           const episodeId = animeInfo?.episodes[linkoption-1]?.id;
-          const server = currentServer.name;
-          const link = await FetchVideoLink(episodeId,server);
+          const link = await FetchVideoLink(episodeId);
           setVideoLink(link);
           setIsLoading(false);
         }
@@ -32,7 +26,7 @@ const WatchorDownload = ({ linkoption, animeInfo }) => {
       }
     }
     episodelink();
-  },[linkoption,animeInfo,currentServer])
+  },[linkoption,animeInfo])
   return (
     <div className='video-option'>
       <FadeInFromRight value={<>
@@ -40,16 +34,6 @@ const WatchorDownload = ({ linkoption, animeInfo }) => {
       </>}/>
       <FadeInFromLeft value={<>
       <h4>Watch Online</h4>
-      
-      <EpisodeServer 
-      linkoption={linkoption} 
-      animeInfo={animeInfo} 
-      handlechangeServer={handlechangeServer} 
-      setCurrentServer={setCurrentServer}
-      serverList={serverList}
-      setServerList={setServerList}
-      />
-      
       </>}/>
       <FadeInFromRight value={<>
       {videoLink?.sources?.map((link) => (

@@ -25,11 +25,7 @@ function EpisodeServer(
     },[linkoption, animeInfo]);
        
     return (<>
-        <select onChange={(e) => handlechangeServer(e)}>
-            {serverList?.map((server,index)=>(
-                <option key={server.name} value={index}>{server.name}</option>
-            ))}
-        </select>
+       
     </>);
 }
 
