@@ -12,11 +12,10 @@ function SearchBox({handleShowSearchBar,navbarSearch}) {
     const navigate = useNavigate();
 
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
+    const handleSubmit = async () => {
         try {
             const jsonData = await FetchSearchData(query);
+            document.activeElement.blur();
             setSdata(jsonData);
             setResult(query);
         } catch (error) {
@@ -38,14 +37,6 @@ function SearchBox({handleShowSearchBar,navbarSearch}) {
             onKeyDown={(e) => {
                 if (e.code === "Enter" && query.trim() != "") {
                   e.preventDefault();
-                  e.target.blur(); 
-                  handleSubmit(); 
-                }
-              }}
-            onKeyUp={(e) => {
-                if (e.code === "Enter" && query.trim() != "") {
-                  e.preventDefault();
-                  e.target.blur(); 
                   handleSubmit(); 
                 }
               }}
