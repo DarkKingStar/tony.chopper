@@ -12,7 +12,8 @@ function SearchBox({handleShowSearchBar,navbarSearch}) {
     const navigate = useNavigate();
 
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         try {
             const jsonData = await FetchSearchData(query);
             document.activeElement.blur();
@@ -26,8 +27,7 @@ function SearchBox({handleShowSearchBar,navbarSearch}) {
     return (
         <>
         <div className="container" style={{marginTop:"5px"}}>
-        <form onSubmit={handleSubmit}>
-
+        <form onSubmit={(e)=>handleSubmit(e)}>
           <div className="searchBar">
             <input id="searchQueryInput" 
             type="text" 
@@ -37,7 +37,7 @@ function SearchBox({handleShowSearchBar,navbarSearch}) {
             onKeyDown={(e) => {
                 if (e.code === "Enter" && query.trim() != "") {
                   e.preventDefault();
-                  handleSubmit(); 
+                  handleSubmit(e); 
                 }
               }}
             onChange={(e) => setQuery(e.target.value)}/>
