@@ -28,9 +28,10 @@ const WatchorDownload = ({ linkoption, animeInfo }) => {
     episodelink();
   },[linkoption,animeInfo])
   return (
+    <>{ videoLink?.sources &&
     <div className='video-option'>
       <FadeInFromRight value={<>
-      <h3>Select the Video Quality<br/><br/> Episode : {isLoading?(<>....</>):(linkoption)}</h3>
+      <h3>Select the Video Quality<br/><br/> Episode : {isLoading?(<>...</>):(linkoption)}</h3>
       </>}/>
       <FadeInFromLeft value={<>
       <h4>Watch Online</h4>
@@ -55,6 +56,6 @@ const WatchorDownload = ({ linkoption, animeInfo }) => {
       </a>
       </>}/>
     </div>
-  );
+}</>);
 };
 export default WatchorDownload;

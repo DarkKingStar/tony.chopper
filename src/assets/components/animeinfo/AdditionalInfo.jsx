@@ -7,7 +7,7 @@ const AdditionalInfo = ({ otherName, type, status, releaseDate, totalEpisodes })
       <p><b>Type:</b> {type}</p>
       <p><b>Status:</b> {status}</p>
       <p><b>Released:</b> {releaseDate}</p>
-      <p><b>Episodes:</b> {totalEpisodes}</p>
+      {totalEpisodes!= 0 &&<p><b>Episodes:</b> {totalEpisodes}</p>}
     </div>
   );
 };
