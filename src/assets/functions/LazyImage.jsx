@@ -12,7 +12,7 @@ const LazyImage = ({ src, alt }) => {
           observer.unobserve(entry.target);
         }
       });
-    });
+    }, { threshold: 0.5 });
 
     observer.observe(imgRef.current);
 
@@ -21,7 +21,7 @@ const LazyImage = ({ src, alt }) => {
     };
   }, []);
 
-  return (<><img ref={imgRef} src={isVisible ? src : ''} alt={alt} /></>);
+  return (<><img ref={imgRef} src={isVisible ? src : 'https://w0.peakpx.com/wallpaper/567/864/HD-wallpaper-blur-iphone-blurred.jpg'} alt={alt} /></>);
 };
 
 export default LazyImage;
