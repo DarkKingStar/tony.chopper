@@ -8,115 +8,86 @@ import Pagechangeoption from '../pagechangeoption';
 import SubHeading from './SubHeading';
 import BackgroundImage from '../BackgroundImage';
 
+
+const buttonsData = [
+  { label: "Top Trending", route: "top-airing" },
+  { label: "Recent Released", route: "recent-released" },
+  { label: "Most Popular", route: "popular" },
+  { label: "Anime Movies", route: "anime-movies" },
+];
+
+
 const HomePage=({})=> {
-  const [rrdata, setrrData] = useState([]);
-  const [tadata, settaData] = useState([]);
-  const [podata,setpoData] = useState([]);
-  const [amdata,setamData] = useState([]);
+  const [data, setData] = useState([]);
 
-  const [loadingta, setLoadingta] = useState(true);
-  const [loadingrr, setLoadingrr] = useState(true);
-  const [loadingpo,setLoadingpo] = useState(true);
-  const [loadingam,setLoadingam] = useState(true);
+  const [loading, setLoading] = useState(true);
   
-  const [rrpage, setrrPage] = useState(1);
-  const [tapage, settaPage] = useState(1);
-  const [popage,setpoPage] = useState(1);
-  const [ampage,setamPage] = useState(1);
+  const [page, setPage] = useState(1);
+
+  const [route, setRoute] = useState("top-airing");
+
+  const [category, setCategory] = useState("Top Trending");
 
 
   useEffect(() => {
+    setLoading(true)
     const fetchData = async () => {
       try {
-        const recentReleasedData = await FetchAnimeList("recent-released",rrpage);
-        setrrData(recentReleasedData);
-        setLoadingrr(false)
-      } catch (error) {
-        console.error('Error:', error);
-      }
-      window.scrollTo(0, 0);
-    };
-
-    fetchData();
-  }, [rrpage]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const topAiringData = await FetchAnimeList("top-airing",tapage);
-        settaData(topAiringData);
-        setLoadingta(false)
+        const recentReleasedData = await FetchAnimeList(route,page);
+        setData(recentReleasedData);
+        setLoading(false)
       } catch (error) {
         console.error('Error:', error);
       }
     };
-
+    console.log("page:",page,"  route:",route)
     fetchData();
-  }, [tapage]);
+  }, [page,route]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const popularData = await FetchAnimeList("popular",popage);
-        setpoData(popularData);
-        setLoadingpo(false)
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-    fetchData();
-  }, [popage]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const animemovieData = await FetchAnimeList('anime-movies',ampage);
-        setamData(animemovieData);
-        setLoadingam(false)
-      } catch (error) {
-        console.error('Error:', error);
-      }
-    };
-    fetchData();
-  }, [ampage]);
 
   const handlePageChange = (setter, delta, setLoading) => {
     setLoading(true);
     setter(prev => Math.max(prev + delta, 1));
   }
 
+  const Button = ({ label, route,  currentPage }) => (
+    <button
+      disabled={route === currentPage}
+      className={route === currentPage ? "currentactive-btn" : null}
+      style={{ margin: '10px' }}
+      onClick={() => {
+        setRoute(route);
+        setCategory(label);
+        setPage(1);
+      }}
+    >
+      {label}
+    </button>
+  );
   return (
     <>
       <BackgroundImage/>
       <SearchBox/>
-      <SubHeading text={"Popular"}/>
-      <Pagechangeoption handlePageChange={handlePageChange} Pageno={popage} setPage={setpoPage} Loading={loadingpo} setLoading={setLoadingpo}/>
-      {loadingpo ? <Loading /> : (
+      <div style={{ margin: '20px' }}>
+        {buttonsData.map((button) => (
+          <Button
+            key={button.label}
+            label={button.label}
+            route={button.route}
+            currentPage={route}
+          />
+        ))}
+      </div>
+      <SubHeading text={category}/>
+      
+      
+      <Pagechangeoption handlePageChange={handlePageChange} Pageno={page} hasNextPage={data.hasNextPage} setPage={setPage} Loading={loading} setLoading={setLoading}/>
+      {loading ? <Loading /> : (
         <>
-          <Animeholders jsonData={podata} />
+          <Animeholders jsonData={data} />
         </>
       )}
-      <SubHeading text={"Top Airing"}/>
-      <Pagechangeoption handlePageChange={handlePageChange} Pageno={tapage} setPage={settaPage} Loading={loadingta} setLoading={setLoadingta}/>
-      {loadingta ? <Loading /> : (
-        <>
-          <Animeholders jsonData={tadata} />
-        </>
-      )}
-      <SubHeading text={"Latest Update"}/>
-      <Pagechangeoption handlePageChange={handlePageChange} Pageno={rrpage} setPage={setrrPage} Loading={loadingrr} setLoading={setLoadingrr}/>
-      {loadingrr ? <Loading /> : (
-        <>
-          <Animeholders jsonData={rrdata} />
-        </>
-      )}
-      <SubHeading text={"Anime Movies"}/>
-      <Pagechangeoption handlePageChange={handlePageChange} Pageno={ampage} setPage={setamPage} Loading={loadingam} setLoading={setLoadingam}/>
-      {loadingam ? <Loading /> : (
-        <>
-          <Animeholders jsonData={amdata} />
-        </>
-      )}
+      
     </>
   );
 }

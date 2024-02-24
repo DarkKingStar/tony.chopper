@@ -190,8 +190,8 @@ button:disabled{
   background: linear-gradient(0deg, var(--anime-name) 7%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 72%, rgba(255,255,255,0) 100%);
 }
 .currentactive-btn{
-  background-color:  var(--btn-bg-active);
-  color:var(--btn-tx-active);
+  background-color:  var(--btn-bg-active) !important;
+  color:var(--btn-tx-active) !important;
 }
 
 h1{

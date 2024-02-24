@@ -58,8 +58,30 @@
 .non-hover-p{
   position: absolute;
   bottom: 0;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   width: 100%;
 }
+
+.grid-item:hover .anime-name .non-hover-p {
+  color: var(--btn-tx-active);
+}
+
+
+.grid-item-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.5) 76%, rgba(0,0,0,1) 100%);
+  display: none; /* Initially hidden */
+}
+
+.grid-item:hover .grid-item-overlay {
+  display: block; /* Show the overlay on hover */
+}
+
 @media screen and (max-width: 1024px) {
   .anime-name {
     font-size: 0.9em; /* Adjusted font size for tablets */
@@ -71,91 +93,6 @@
     font-size: 0.65em; /* Adjusted font size for mobile */
   }
 }
-
-.hover-item{
-  display: none;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.hover-info{
-  display: none;
-}
-
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-.hover {
-  display: none;
-  backdrop-filter: blur(30px);
-  width: 300px;
-  border-radius: 8px;
-  position: absolute;
-  height: 400px;
-  z-index: 2;
-  transform: translate(-10%,-100%);
-  opacity: 0;
-  animation: fade-in 0.5s forwards; 
-}
-@media screen and (max-width: 1024px) {
-  .hover{
-    scale: 0.8;
-    transform: translate(-20%,-110%);
-  }
-}
-@media screen and (max-width: 767px) {
-  .hover{
-    scale: 0.7;
-    transform: translate(-35%,-120%);
-  }
-}
-
-.grid-item:hover .hover {
-  display: block;
-  animation: fade-in 0.5s forwards; 
-}
-.img-hover{
-  width: 100px;
-  height: 140px;
-  margin: 5px;
-  border-radius: 8px;
-}
-.img-hover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-.hover-title{
-  width: 175px;
-  margin: 5px;
-  max-height: 400px;
-  text-align: left;
-}
-.hover-description{
-  width: 90%;
-  text-align: left;
-  margin: 0 5%;
-  font-size: small;
-}
-.visitbtn-div{
-  position: absolute;
-  bottom:5px;
-  width: 100%;
-  align-items: center;
-}
-.visitbtn-div button{
-  background-color: rgb(7, 202, 202);
-}
-
 .pagechange{
   display:flex;
   margin:20px 0 50px;
