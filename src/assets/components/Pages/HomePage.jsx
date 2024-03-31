@@ -10,7 +10,7 @@ import BackgroundImage from '../BackgroundImage';
 
 
 const buttonsData = [
-  { label: "Top Trending", route: "top-airing" },
+  { label: "New Season", route: "new-season" },
   { label: "Recent Released", route: "recent-released" },
   { label: "Most Popular", route: "popular" },
   { label: "Anime Movies", route: "anime-movies" },
@@ -24,9 +24,9 @@ const HomePage=({})=> {
   
   const [page, setPage] = useState(1);
 
-  const [route, setRoute] = useState("top-airing");
+  const [route, setRoute] = useState("new-season");
 
-  const [category, setCategory] = useState("Top Trending");
+  const [category, setCategory] = useState("New Season");
 
 
   useEffect(() => {

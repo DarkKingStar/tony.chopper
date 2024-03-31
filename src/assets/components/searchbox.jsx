@@ -2,14 +2,12 @@ import { useState } from "react";
 import { FetchSearchData } from "../fetch/fetchsearchdata";
 import Animeholders from "./animeholders";
 import "./searchbox.css";
-import { useNavigate } from 'react-router-dom';
 
 
 function SearchBox({handleShowSearchBar,navbarSearch}) {
     const [sdata, setSdata] = useState([]);
     const [query, setQuery] = useState("");
     const [result,setResult] = useState("");
-    const navigate = useNavigate();
 
 
     const handleSubmit = async (e) => {
