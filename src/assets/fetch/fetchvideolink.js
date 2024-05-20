@@ -1,6 +1,6 @@
 export const FetchVideoLink = async(epId)=>{
     try {
-        const response = await fetch(`https://backendchopper.onrender.com/watch/${epId}`);
+        const response = await fetch(`https://tony-tony-chopper.onrender.com/watch/${epId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

@@ -1,6 +1,6 @@
 export const FetchAnimeInfo = async(animeId)=>{
     try {
-        const response = await fetch(`https://backendchopper.onrender.com/info/${animeId}`);
+        const response = await fetch(`https://tony-tony-chopper.onrender.com/info/${animeId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

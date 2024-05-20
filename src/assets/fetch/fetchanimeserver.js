@@ -1,6 +1,6 @@
 export const FetchAnimeServer = async(epId)=>{
     try {
-        const response = await fetch(`https://backendchopper.onrender.com/servers/${epId}`);
+        const response = await fetch(`https://tony-tony-chopper.onrender.com/servers/${epId}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
