@@ -1,0 +1,29 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+
+.slick-arrow.slick-prev,
+.slick-arrow.slick-next {
+  scale: 1.35;
+  opacity: 0.7;
+  z-index: 1;
+  position: absolute;
+}
+.slick-arrow.slick-next {
+  right: 15px;
+
+}
+.slick-arrow.slick-prev {
+  left: 15px;
+}
+
+.slick-arrow.slick-next:before,
+.slick-arrow.slick-prev:before {
+  color: black;
+  text-shadow: 
+        -1px -1px 0px white, /* Top left */
+        1px -1px 0px white,  /* Top right */
+        -1px 1px 0px white,  /* Bottom left */
+        1px 1px 0px white; /* Bottom right */
+}

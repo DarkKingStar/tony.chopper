@@ -1,0 +1,99 @@
+.footer-container{
+    display: grid;
+    grid-template-rows: 1fr 10rem auto;
+    grid-template-areas: "main" "." "footer";
+    overflow-x: hidden;
+    position: absolute;
+    left: 0;
+    min-width: 100vw;
+    font-family: "Open Sans", sans-serif;
+    }
+    .footer {
+      z-index: 1;
+      display: grid;
+      position: relative;
+      grid-area: footer;
+      min-height: 12rem;
+    }
+   .footer .bubbles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1rem;
+      background: var(--footer-bg-color);
+      filter: url("#blob");
+    }
+    body .footer .bubbles .bubble {
+      position: absolute;
+      left: var(--position, 50%);
+      background: var(--footer-bg-color);
+      border-radius: 100%;
+      -webkit-animation: bubble-size var(--time, 3s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 3s) ease-in infinite var(--delay, 0s);
+              animation: bubble-size var(--time, 3s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 3s) ease-in infinite var(--delay, 0s);
+      transform: translate(-50%, 100%);
+    }
+    body .footer .content {
+      padding: 6rem 1rem 2rem;
+      background: var(--footer-bg-color);
+      z-index: 2;
+    }
+    .footer .content .container {
+      max-width: 768px;
+      margin: 0 auto;
+      display: grid;
+      color: #fff;
+    }
+    
+    .content h1 {
+      margin-bottom: 0;
+    }
+    
+    .content span {
+      font-size: .775rem;
+    }
+    
+    
+    
+  
+    
+    
+    @-webkit-keyframes bubble-size {
+      0%, 75% {
+        width: var(--size, 4rem);
+        height: var(--size, 4rem);
+      }
+      100% {
+        width: 0rem;
+        height: 0rem;
+      }
+    }
+    
+    @keyframes bubble-size {
+      0%, 75% {
+        width: var(--size, 4rem);
+        height: var(--size, 4rem);
+      }
+      100% {
+        width: 0rem;
+        height: 0rem;
+      }
+    }
+    @-webkit-keyframes bubble-move {
+      0% {
+        bottom: -4rem;
+      }
+      100% {
+        bottom: var(--distance, 10rem);
+      }
+    }
+    @keyframes bubble-move {
+      0% {
+        bottom: -4rem;
+      }
+      100% {
+        bottom: var(--distance, 10rem);
+      }
+    }
+    
+  

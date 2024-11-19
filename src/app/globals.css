@@ -3,19 +3,41 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  user-select: none;
+  color: #ffffffde;
+  background-color: #1e1e1e;
+   /* css color variables */
+  --background: #1e1e1e;
+  --foreground: #ffffffde;
+  --p-color: #ffffff;
+  --h-color: #ffffff;
+  --a-color: #ffffff;
+  --btn-bg-color: #1a1a1a;
+  --btn-tx-color: #f0f0f0;
+  --btn-bg-disable: #474747;
+  --btn-tx-disable: #242424;
+  --btn-bg-active: #cf2642;
+  --btn-tx-active: #e9ef8d;
+  --btn-bg-hover-color: #f24a66;
+  --btn-tx-hover-color: #ffffff;
+  --input-bg-color: #151515;
+  --input-tx-color: #cfcfcf;
+  --input-bg-focus-color: #341a1f;
+  --input-tx-focus-color: #ffffff;
+  --footer-bg-color: #fa164b;
+  --anime-name: #0f0f0f;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow: auto;
+  scrollbar-gutter: stable both-edges;
+  margin: 0;
 }
